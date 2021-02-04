@@ -6,7 +6,6 @@ const useStyles = createUseStyles({
     marginTop: 100,
     textAlign: 'center',
   },
-
   header: {
     fontSize: 24,
     lineHeight: 1.25,
