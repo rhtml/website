@@ -1,9 +1,25 @@
+import { createUseStyles } from 'react-jss';
 import Docs from '../wrappers/Docs';
 
-const HomePage: React.FC = () => (
+const useStyles = createUseStyles({
+  container: {
+    marginTop: 100,
+    textAlign: 'center',
+  },
+
+  header: {
+    fontSize: 24,
+    lineHeight: 1.25,
+  },
+});
+
+const HomePage: React.FC = () => {
+  const classes = useStyles();
+
+  return (
   <Docs>
-    <div>
-      <header>
+    <div className={classes.container}>
+      <header className={classes.header}>
         Rasterize HTML
       </header>
       <div>
@@ -17,6 +33,7 @@ const HomePage: React.FC = () => (
       </footer>
     </div>
   </Docs>
-);
+  );
+};
 
 export default HomePage;
