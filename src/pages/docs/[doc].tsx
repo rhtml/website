@@ -3,11 +3,41 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
 import gfm from 'remark-gfm';
+import Jumplist from '../../components/Jumplist';
 
 type Props = {
   markdownFile: string,
   gitHubURL: string
 }
+
+const absoluteURLPattern = /^https?:\/\//i;
+
+const renderers = {
+  link: ({ href, children }) => {
+    const isAbsolutePath = absoluteURLPattern.test(href);
+
+    let hrefToUse = href;
+    if (!isAbsolutePath) {
+      hrefToUse = href.replace('.md', '');
+    }
+
+    let anchorAttributes = {};
+    if (isAbsolutePath) {
+      anchorAttributes = {
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      };
+    }
+
+    return (
+      <Link href={hrefToUse}>
+        <a {...anchorAttributes}>
+          {children}
+        </a>
+      </Link>
+    );
+  },
+};
 
 const Doc: React.FC<Props> = (props) => {
   const {
@@ -17,12 +47,25 @@ const Doc: React.FC<Props> = (props) => {
 
   return (
     <div>
+      <div>
+        <Jumplist
+          list={[{
+            label: 'hello',
+            path: '/',
+          }]}
+        />
+      </div>
       <Link href={gitHubURL}>
         <a target="_blank">
           Edit on GitHub
         </a>
       </Link>
-      <ReactMarkdown plugins={[gfm]} >
+      <ReactMarkdown
+       plugins={[
+         gfm,
+       ]}
+       renderers={renderers}
+      >
         {markdownFile}
       </ReactMarkdown>
     </div>
@@ -55,9 +98,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
       // could be a file (blob), or a directory
       if (type === 'blob' && path !== 'README.md') {
         const isMarkdownFile = path.match('.md$');
-        const pathWithoutFileExtension = path.replace('.md', '');
-        if (isMarkdownFile && pathWithoutFileExtension !== 'README') {
-          const pathSegments = pathWithoutFileExtension.split('/');
+        if (isMarkdownFile && path !== 'README.md') {
+          const pathWithoutFileExt = path.replace('.md', '');
+          const pathSegments = pathWithoutFileExt.split('/');
           const slug = pathSegments[pathSegments.length - 1];
           let asURL;
           if (pathSegments.length === 1) {
