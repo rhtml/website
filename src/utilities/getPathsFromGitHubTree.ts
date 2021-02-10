@@ -1,24 +1,28 @@
 type ItemInTree = {
   type: string,
-  path: string
+  path: string,
+  name: string
 }
 
-const getPathsFromGitHubTree = (masterTree: ItemInTree[], drillTo = 1): string[] => {
+const getPathsFromGitHubTree = (docs: ItemInTree[], drillTo = 1): string[] => {
   let paths = [];
 
-  if (Array.isArray(masterTree) && masterTree.length > 0) {
-    paths = masterTree.map((itemInTree) => {
+  if (Array.isArray(docs) && docs.length > 0) {
+    paths = docs.map((itemInTree) => {
       const {
         type,
+        name,
         path,
       } = itemInTree;
 
-      // could be a file (blob), or a directory
-      if (type === 'blob' && path !== 'README.md') {
-        const isMarkdownFile = path.match('.md$');
+      if (type === 'file') {
+        const isMarkdownFile = name.match('.md$');
+
         if (isMarkdownFile) {
-          const pathWithoutFileExt = path.replace('.md', '');
-          const pathSegments = pathWithoutFileExt.split('/');
+          let sanitizedPath = path;
+          sanitizedPath = sanitizedPath.replace('src/', '');
+          sanitizedPath = sanitizedPath.replace('.md', '');
+          const pathSegments = sanitizedPath.split('/');
 
           let asURL;
 

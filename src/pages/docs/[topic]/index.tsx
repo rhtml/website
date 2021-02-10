@@ -45,16 +45,15 @@ const Doc: React.FC<Props> = (props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch('https://api.github.com/repos/rhtml/docs/git/trees/master?recursive=1', {
+  const res = await fetch('https://api.github.com/repos/rhtml/docs/contents/src', {
     method: 'GET',
     headers: {
       Accept: 'application/vnd.github.v3+json.html',
     },
   });
 
-  const json = await res.json();
-  const { tree: masterTree } = json;
-  const paths = getPathsFromGitHubTree(masterTree);
+  const docs = await res.json();
+  const paths = getPathsFromGitHubTree(docs);
 
   return {
     paths,
@@ -62,13 +61,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-
 export const getStaticProps: GetStaticProps = async (context) => {
   const {
     params: { topic: docSlug },
   } = context;
 
-  const res = await fetch(`https://api.github.com/repos/rhtml/docs/contents/${docSlug}.md`, {
+  const res = await fetch(`https://api.github.com/repos/rhtml/docs/contents/src/${docSlug}.md`, {
     method: 'GET',
     headers: {
       Accept: 'application/vnd.github.v3+json.html',
