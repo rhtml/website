@@ -5,6 +5,7 @@ import gfm from 'remark-gfm';
 import { Props } from './types';
 import Jumplist from '../Jumplist';
 import remarkTransforms from '../../utilities/remarkTransforms';
+import useStyles from './css';
 
 const DocTemplate: React.FC<Props> = (props) => {
   const {
@@ -12,9 +13,16 @@ const DocTemplate: React.FC<Props> = (props) => {
     markdown,
   } = props;
 
+  const classes = useStyles();
+
   return (
-    <div>
-      <div>
+    <div className={classes.wrapper}>
+      <div className={classes.sidebar}>
+        <Link href={gitHubURL}>
+          <a target="_blank">
+            Edit on GitHub
+          </a>
+        </Link>
         <Jumplist
           list={[{
             label: 'hello',
@@ -22,17 +30,14 @@ const DocTemplate: React.FC<Props> = (props) => {
           }]}
         />
       </div>
-      <Link href={gitHubURL}>
-        <a target="_blank">
-          Edit on GitHub
-        </a>
-      </Link>
-      <ReactMarkdown
-       plugins={[gfm]}
-       renderers={remarkTransforms}
-      >
-        {markdown}
-      </ReactMarkdown>
+      <div className={classes.content}>
+        <ReactMarkdown
+          plugins={[gfm]}
+          renderers={remarkTransforms}
+        >
+          {markdown}
+        </ReactMarkdown>
+      </div>
     </div>
   );
 };

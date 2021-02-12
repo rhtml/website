@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import GlobalCSS from '../wrappers/GlobalCSS';
+import Header from '../components/Header';
 
 type Props = {
   pageProps: Record<string, unknown>
@@ -17,6 +18,7 @@ const App: React.FC<Props> = ({ Component, pageProps }: AppProps) => {
 
   return (
     <GlobalCSS>
+      <Header />
       <Component {...pageProps} />
     </GlobalCSS>
   );
