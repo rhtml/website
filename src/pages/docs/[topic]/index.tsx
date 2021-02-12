@@ -1,13 +1,9 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import ReactMarkdown from 'react-markdown';
-import Link from 'next/link';
-import gfm from 'remark-gfm';
-import Jumplist from '../../../components/Jumplist';
-import remarkTransforms from '../../../utilities/remarkTransforms';
 import getPathsFromGitHubTree from '../../../utilities/getPathsFromGitHubTree';
 import parseGitHubFileContents from '../../../utilities/parseGitHubFileContents';
 import { getGitHubMasterTree, getGitHubFile } from '../../../api';
+import DocTemplate from '../../../components/DocTemplate';
 
 type Props = {
   markdownFile: string,
@@ -21,27 +17,10 @@ const Doc: React.FC<Props> = (props) => {
   } = props;
 
   return (
-    <div>
-      <div>
-        <Jumplist
-          list={[{
-            label: 'hello',
-            path: '/',
-          }]}
-        />
-      </div>
-      <Link href={gitHubURL}>
-        <a target="_blank">
-          Edit on GitHub
-        </a>
-      </Link>
-      <ReactMarkdown
-       plugins={[gfm]}
-       renderers={remarkTransforms}
-      >
-        {markdownFile}
-      </ReactMarkdown>
-    </div>
+    <DocTemplate
+      gitHubURL={gitHubURL}
+      markdown={markdownFile}
+    />
   );
 };
 
