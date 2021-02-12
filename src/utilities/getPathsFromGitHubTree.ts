@@ -1,43 +1,34 @@
-type ItemInTree = {
-  type: string,
-  path: string,
-  name: string
-}
+import { GitHubTree } from '../types/GitHub';
 
-const getPathsFromGitHubTree = (docs: ItemInTree[], drillTo = 1): string[] => {
+const getPathsFromGitHubTree = (items: GitHubTree, drillTo = 1): string[] => {
   let paths = [];
 
-  if (Array.isArray(docs) && docs.length > 0) {
-    paths = docs.map((itemInTree) => {
+  if (Array.isArray(items) && items.length > 0) {
+    paths = items.map((itemInTree) => {
       const {
         type,
-        name,
         path,
       } = itemInTree;
 
-      if (type === 'file') {
-        const isMarkdownFile = name.match('.md$');
+      if (path.startsWith('src/')) {
+        const hasMarkdownExt = path.match('.md$');
+        const isMarkdownFile = type === 'blob' && hasMarkdownExt;
 
-        if (isMarkdownFile) {
-          let sanitizedPath = path;
-          sanitizedPath = sanitizedPath.replace('src/', '');
-          sanitizedPath = sanitizedPath.replace('.md', '');
-          const pathSegments = sanitizedPath.split('/');
+        let sanitizedPath = path;
+        sanitizedPath = sanitizedPath.replace('src/', '');
+        sanitizedPath = sanitizedPath.replace('.md', '');
 
-          let asURL;
+        const pathSegments = sanitizedPath.split('/');
 
-          if (pathSegments.length === 1 && drillTo === 1) {
-            const slug = pathSegments[0];
-            asURL = `/docs/${slug}`;
-          }
+        if (drillTo === 1 && pathSegments.length === 1 && isMarkdownFile) {
+          const slug = pathSegments[0];
+          return `/docs/${slug}`;
+        }
 
-          if (pathSegments.length === 2 && drillTo === 2) {
-            const topic = pathSegments[0];
-            const slug = pathSegments[1];
-            asURL = `/docs/${topic}/${slug}`;
-          }
-
-          return asURL;
+        if (drillTo === 2 && pathSegments.length === 2 && isMarkdownFile) {
+          const topic = pathSegments[0];
+          const slug = pathSegments[1];
+          return `/docs/${topic}/${slug}`;
         }
       }
 

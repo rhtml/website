@@ -1,10 +1,6 @@
-type Props = {
-  content: string,
-  encoding: string,
-  type: string,
-}
+import { GitHubFile } from '../types/GitHub';
 
-const parseGitHubFile = (props: Props): string => {
+const parseGitHubFile = (props: GitHubFile): string => {
   let parsedFile = '';
 
   const {

@@ -6,7 +6,8 @@ import gfm from 'remark-gfm';
 import Jumplist from '../../../components/Jumplist';
 import remarkTransforms from '../../../utilities/remarkTransforms';
 import getPathsFromGitHubTree from '../../../utilities/getPathsFromGitHubTree';
-import parseGitHubFile from '../../../utilities/parseGitHubFile';
+import parseGitHubFileContents from '../../../utilities/parseGitHubFileContents';
+import { getGitHubMasterTree, getGitHubFile } from '../../../api';
 
 type Props = {
   markdownFile: string,
@@ -45,23 +46,14 @@ const Doc: React.FC<Props> = (props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch('https://api.github.com/repos/rhtml/docs/git/trees/master?recursive=1', {
-    method: 'GET',
-    headers: {
-      Accept: 'application/vnd.github.v3+json.html',
-    },
-  });
-
-  const json = await res.json();
-  const { tree: masterTree } = json;
-  const paths = getPathsFromGitHubTree(masterTree, 2);
+  const gitHubTree = await getGitHubMasterTree();
+  const paths = getPathsFromGitHubTree(gitHubTree, 2);
 
   return {
     paths,
     fallback: false,
   };
 };
-
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const {
@@ -71,19 +63,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   } = context;
 
-  const res = await fetch(`https://api.github.com/repos/rhtml/docs/contents/${docTopic}/${docSlug}.md`, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/vnd.github.v3+json.html',
-    },
-  });
-
-  const json = await res.json();
-  const { html_url } = json; // eslint-disable-line camelcase
+  const gitHubFile = await getGitHubFile(`${docTopic}/${docSlug}.md`);
+  const { html_url } = gitHubFile; // eslint-disable-line camelcase
+  const parsedContents = parseGitHubFileContents(gitHubFile);
 
   return {
     props: {
-      markdownFile: parseGitHubFile(json),
+      markdownFile: parsedContents,
       gitHubURL: html_url,
     },
   };
