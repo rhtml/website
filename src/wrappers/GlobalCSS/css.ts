@@ -2,7 +2,7 @@
 import { createUseStyles } from 'react-jss';
 import { bodyFontSize, colors, base } from '../../css/vars';
 import fonts from '../../css/fonts';
-import { fontFamily, h1, h2, h3, h4, h5, p, small } from '../../css/type';
+import { code, fontFamily, h1, h2, h3, h4, h5, p, small } from '../../css/type';
 
 export default createUseStyles({
   '@global': {
@@ -55,6 +55,25 @@ export default createUseStyles({
     },
     a: {
       color: 'inherit',
+    },
+    code: {
+      ...code,
+    },
+    ul: {
+      paddingLeft: 0,
+      marginLeft: base(2),
+      margin: 0,
+      '& > li:not(:last-child)': {
+        marginBottom: base(0.5),
+      },
+    },
+    ol: {
+      paddingLeft: 0,
+      marginLeft: base(2),
+      margin: 0,
+      '& > li:not(:last-child)': {
+        marginBottom: base(0.5),
+      },
     },
     svg: {
       '& > *': {

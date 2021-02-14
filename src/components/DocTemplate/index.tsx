@@ -1,11 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
-import gfm from 'remark-gfm';
 import { Props } from './types';
 import Jumplist from '../Jumplist';
-import remarkTransforms from '../../utilities/remarkTransforms';
 import useStyles from './css';
+import Markdown from '../Markdown';
 
 const DocTemplate: React.FC<Props> = (props) => {
   const {
@@ -31,12 +29,7 @@ const DocTemplate: React.FC<Props> = (props) => {
         />
       </div>
       <div className={classes.content}>
-        <ReactMarkdown
-          plugins={[gfm]}
-          renderers={remarkTransforms}
-        >
-          {markdown}
-        </ReactMarkdown>
+        <Markdown markdown={markdown} />
       </div>
     </div>
   );

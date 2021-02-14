@@ -6,14 +6,17 @@ const useStyles = createUseStyles({
     display: 'flex',
   },
   sidebar: {
-    flex: 1,
+    flexShrink: 0,
     position: 'sticky',
     top: base(4),
     height: '100%',
     padding: base(),
+    width: '400px',
   },
   content: {
-    flex: 3,
+    flexGrow: 1,
+    padding: `0 ${base(2)} ${base(2)}`,
+    maxWidth: '800px',
   },
 });
 

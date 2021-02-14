@@ -17,6 +17,7 @@ const useStyles = createUseStyles({
     display: 'flex',
     listStyle: 'none',
     margin: 0,
+    padding: 0,
     width: '100%',
     justifyContent: 'flex-end',
   },

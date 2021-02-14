@@ -1,33 +1,38 @@
 import React from 'react';
 import Link from 'next/link';
 import { Props } from './types';
+import useStyles from './css';
 
 const Jumplist: React.FC<Props> = (props) => {
   const {
     list,
   } = props;
 
-  if (Array.isArray(list) && list.length > 0) {
-    <ul>
-      {list.map((item, index) => {
-        const {
-          label,
-        } = item;
+  const classes = useStyles();
 
-        return (
-          <li key={index}>
-            <Link href="/">
-              <a>
-                {label}
-              </a>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>;
-  }
+  return (
+    <div className={classes.wrapper}>
+      {(Array.isArray(list) && list.length > 0) && (
+        <ul className={classes.list}>
+          {list.map((item, index) => {
+            const {
+              label,
+            } = item;
 
-  return null;
+            return (
+              <li key={index}>
+                <Link href="/">
+                  <a>
+                    {label}
+                  </a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
 };
 
 export default Jumplist;

@@ -1,7 +1,8 @@
 import queries from './queries';
 import { base, colors } from './vars';
 
-export const fontFamily = 'sans-serif';
+export const fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+export const fontFamilyMono = 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
 
 export const h1 = {
   color: colors.darkGray,
@@ -67,6 +68,11 @@ export const small = {
   lineHeight: 1,
 };
 
+export const code = {
+  fontFamily: fontFamilyMono,
+  lineHeight: 1,
+};
+
 export default {
   h1,
   h2,
@@ -74,4 +80,5 @@ export default {
   h4,
   h5,
   h6,
+  code,
 };

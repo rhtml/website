@@ -1,13 +1,12 @@
-import React from 'react';
-import Link from 'next/link';
+import NextLink from 'next/link';
 
 const absoluteURLPattern = /^https?:\/\//i;
 
-type Props = {
+type LinkProps = {
   href?: string,
 }
 
-const NewLink: React.FC<Props> = (props) => {
+const Link: React.FC<LinkProps> = (props) => {
   const {
     href,
     children,
@@ -29,14 +28,12 @@ const NewLink: React.FC<Props> = (props) => {
   }
 
   return (
-    <Link href={hrefToUse}>
+    <NextLink href={hrefToUse}>
       <a {...anchorAttributes}>
         {children}
       </a>
-    </Link>
+    </NextLink>
   );
 };
 
-export default {
-  link: NewLink,
-};
+export default Link;
