@@ -4,6 +4,7 @@ import { Props } from './types';
 import Jumplist from '../Jumplist';
 import useStyles from './css';
 import Markdown from '../Markdown';
+import Anchor from '../Anchor';
 
 const DocTemplate: React.FC<Props> = (props) => {
   const {
@@ -17,17 +18,22 @@ const DocTemplate: React.FC<Props> = (props) => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.sidebar}>
-        <Link href={gitHubURL}>
-          <a target="_blank">
-            Edit on GitHub
-          </a>
-        </Link>
         <Jumplist
           list={jumplist}
         />
       </div>
       <div className={classes.content}>
         <Markdown markdown={markdown} />
+        <footer className={classes.footer}>
+          <Link
+            href={gitHubURL}
+            passHref
+          >
+            <Anchor target="_blank">
+              Edit this page on GitHub
+            </Anchor>
+          </Link>
+        </footer>
       </div>
     </div>
   );

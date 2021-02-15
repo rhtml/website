@@ -1,5 +1,5 @@
 import { createUseStyles } from 'react-jss';
-import { base } from '../../css';
+import { base, colors } from '../../css';
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -19,6 +19,11 @@ const useStyles = createUseStyles({
     flexGrow: 1,
     padding: `0 ${base(2)} ${base(2)}`,
     width: '66%',
+  },
+  footer: {
+    marginTop: base(2),
+    borderTop: `solid 1px ${colors.gray}`,
+    paddingTop: base(2),
   },
 });
 
