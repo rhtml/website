@@ -7,13 +7,10 @@ export const defaultWallColor = '#EDEDED';
 
 export const colors = {
   white: '#FFFFFF',
-  lightGray: '#E6E8EA',
-  lighterGray: '#F2F5F7',
-  gray: '#9799A0',
-  darkGray: '#444853',
-  darkerGray: '#32353E',
-  red: '#E51937',
-  brighterRed: '#F50024',
+  lightGray: '#efefef',
+  lighterGray: '#f6f8fa',
+  gray: '#3d3d3d',
+  darkGray: '#151515',
 };
 
 export const breakpoints = {

@@ -13,7 +13,7 @@ export default createUseStyles({
       height: '100%',
       fontFamily,
       fontSize: bodyFontSize,
-      lineHeight: base(),
+      lineHeight: 1.5,
       color: colors.gray,
     },
     body: {
@@ -22,9 +22,9 @@ export default createUseStyles({
     },
     '#root': {},
     '::selection': {
-      background: colors.red,
-      color: colors.white,
-      mixBlendMode: 'normal',
+      // background: colors.lightGray,
+      // color: colors.white,
+      // mixBlendMode: 'normal',
     },
     img: {
       maxWidth: '100%',
