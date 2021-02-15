@@ -1,5 +1,6 @@
 import { GitHubJumplist } from '../../types/GitHub';
 
 export type Props = {
-  list: GitHubJumplist
+  list: GitHubJumplist,
+  isNested?: boolean
 }

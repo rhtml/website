@@ -1,4 +1,5 @@
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 
 const absoluteURLPattern = /^https?:\/\//i;
 
@@ -12,12 +13,21 @@ const Link: React.FC<LinkProps> = (props) => {
     children,
   } = props;
 
+  const {
+    query: {
+      topic,
+      doc,
+    },
+  } = useRouter();
+
+  const isNested = topic && doc;
+
   let hrefToUse = href;
   const isAbsolutePath = absoluteURLPattern.test(href);
   if (!isAbsolutePath) {
     const withoutExt = href.replace('.md', '');
-    // scope all relative links to '/docs'
-    hrefToUse = `/docs/${withoutExt}`;
+    // scope all relative links to correct path
+    hrefToUse = `/docs${isNested ? `/${topic}` : ''}/${withoutExt}`;
   }
 
   let anchorAttributes = {};

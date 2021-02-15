@@ -1,8 +1,11 @@
 import { createUseStyles } from 'react-jss';
-import { base } from '../../css';
+import { base, colors } from '../../css';
 
 const useStyles = createUseStyles({
   wrapper: {
+    '& > *:not(:last-child)': {
+      marginBottom: base(2),
+    },
   },
   list: {
     listStyle: 'none',
@@ -13,6 +16,22 @@ const useStyles = createUseStyles({
     '&:not(:last-child)': {
       marginBottom: base(),
     },
+  },
+  isNested: {
+    marginLeft: base(),
+  },
+  nestedListLabel: {
+    marginBottom: base(0.5),
+  },
+  anchor: {
+    textDecoration: 'none',
+    '&:hover': {
+      color: colors.darkGray,
+    },
+  },
+  isActive: {
+    color: colors.darkGray,
+    fontWeight: 'bold',
   },
 });
 

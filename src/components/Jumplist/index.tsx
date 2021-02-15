@@ -1,16 +1,27 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Props } from './types';
 import useStyles from './css';
 
 const List: React.FC<Props> = (props) => {
   const {
     list,
+    isNested,
   } = props;
+
+  const { asPath } = useRouter();
+
+  const classes = useStyles();
 
   if (Array.isArray(list) && list.length > 0) {
     return (
-      <ul>
+      <ul
+        className={[
+          classes.list,
+          isNested && classes.isNested,
+        ].filter(Boolean).join(' ')}
+      >
         {list.map((item, index) => {
           const {
             label,
@@ -18,11 +29,18 @@ const List: React.FC<Props> = (props) => {
             list: nestedList,
           } = item;
 
+          const isActive = asPath.startsWith(path);
+
           if (path) {
             return (
               <li key={index}>
                 <Link href={path}>
-                  <a>
+                  <a
+                    className={[
+                      classes.anchor,
+                      isActive && classes.isActive,
+                    ].filter(Boolean).join(' ')}
+                  >
                     {label}
                   </a>
                 </Link>
@@ -31,11 +49,25 @@ const List: React.FC<Props> = (props) => {
           }
 
           if (nestedList) {
+            const nestedHasActive = nestedList.find(({ path: nestedPath }) => asPath.startsWith(nestedPath));
+
             return (
-              <div key={index}>
-                {label}
-                <List list={nestedList} />
-              </div>
+              <li key={index}>
+                <div
+                  className={[
+                    classes.nestedListLabel,
+                    nestedHasActive && classes.isActive,
+                  ].filter(Boolean).join(' ')}
+                >
+                  <b>
+                    {label}
+                  </b>
+                </div>
+                  <List
+                    list={nestedList}
+                    isNested
+                  />
+              </li>
             );
           }
 

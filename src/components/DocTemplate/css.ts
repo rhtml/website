@@ -4,6 +4,8 @@ import { base } from '../../css';
 const useStyles = createUseStyles({
   wrapper: {
     display: 'flex',
+    maxWidth: '1200px',
+    margin: 'auto',
   },
   sidebar: {
     flexShrink: 0,
@@ -11,12 +13,12 @@ const useStyles = createUseStyles({
     top: base(4),
     height: '100%',
     padding: base(),
-    width: '400px',
+    width: '33%',
   },
   content: {
     flexGrow: 1,
     padding: `0 ${base(2)} ${base(2)}`,
-    maxWidth: '800px',
+    width: '66%',
   },
 });
 
