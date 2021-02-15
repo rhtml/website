@@ -44,6 +44,8 @@ const List: React.FC<Props> = (props) => {
       </ul>
     );
   }
+
+  return null;
 };
 
 const Jumplist: React.FC<Props> = (props) => {
