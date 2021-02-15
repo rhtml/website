@@ -1,8 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import qs from 'qs';
-import toKebabCase from '../../../utilities/toKebabCase';
+import toKebabCase from 'lodash.kebabcase';
 
 interface HeadingTagProps {
   tag: string;
@@ -45,7 +44,7 @@ const Heading: React.FC<HeadingProps> = (props) => {
   } = useRouter();
 
   const childrenAsArray = React.Children.toArray(props.children);
-  const text = childrenAsArray.reduce(flatten, '');
+  const text = childrenAsArray.reduce(flatten, '').toString();
   const id = toKebabCase(text);
 
   return (
