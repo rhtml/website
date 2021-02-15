@@ -17,9 +17,8 @@ export const getGitHubMasterTree = async (): Promise<GitHubTree> => {
   return tree;
 };
 
-
 export const getGitHubFile = async (fileName: string): Promise<GitHubFile> => {
-  const res = await fetch(`https://api.github.com/repos/rhtml/docs/contents/src/${fileName}`, {
+  const res = await fetch(`https://api.github.com/repos/rhtml/docs/contents/${fileName}`, {
     method: 'GET',
     headers: {
       Accept: 'application/vnd.github.v3+json.html',

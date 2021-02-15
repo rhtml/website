@@ -1,10 +1,12 @@
 import { GitHubTree } from '../types/GitHub';
 
-const getPathsFromGitHubTree = (items: GitHubTree, drillTo = 1): string[] => {
+// drillTo: -1 for deep
+
+const getPathsFromGitHubTree = (tree: GitHubTree, drillTo = 1): string[] => {
   let paths = [];
 
-  if (Array.isArray(items) && items.length > 0) {
-    paths = items.map((itemInTree) => {
+  if (Array.isArray(tree) && tree.length > 0) {
+    paths = tree.map((itemInTree) => {
       const {
         type,
         path,

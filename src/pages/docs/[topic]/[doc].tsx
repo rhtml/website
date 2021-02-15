@@ -4,22 +4,26 @@ import getPathsFromGitHubTree from '../../../utilities/getPathsFromGitHubTree';
 import parseGitHubFileContents from '../../../utilities/parseGitHubFileContents';
 import { getGitHubMasterTree, getGitHubFile } from '../../../api';
 import DocTemplate from '../../../components/DocTemplate';
+import { GitHubJumplist } from '../../../types/GitHub';
 
 type Props = {
   markdownFile: string,
-  gitHubURL: string
+  gitHubURL: string,
+  jumplist: GitHubJumplist
 }
 
 const Doc: React.FC<Props> = (props) => {
   const {
     markdownFile,
     gitHubURL,
+    jumplist,
   } = props;
 
   return (
     <DocTemplate
       gitHubURL={gitHubURL}
       markdown={markdownFile}
+      jumplist={jumplist}
     />
   );
 };
@@ -42,14 +46,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   } = context;
 
-  const gitHubFile = await getGitHubFile(`${docTopic}/${docSlug}.md`);
+  const gitHubFile = await getGitHubFile(`src/${docTopic}/${docSlug}.md`);
   const { html_url } = gitHubFile; // eslint-disable-line camelcase
-  const parsedContents = parseGitHubFileContents(gitHubFile);
+  const parsedMarkdown = parseGitHubFileContents(gitHubFile);
+
+  const jumplist = await getGitHubFile('jumplist.json');
+  const parsedJumplist = parseGitHubFileContents(jumplist, true);
 
   return {
     props: {
-      markdownFile: parsedContents,
+      markdownFile: parsedMarkdown,
       gitHubURL: html_url,
+      jumplist: parsedJumplist,
     },
   };
 };

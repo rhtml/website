@@ -11,3 +11,11 @@ export type GitHubFile = {
   type: string,
   html_url: string // eslint-disable-line camelcase
 }
+
+export type GitHubJumplistItem = {
+  label: string,
+  path?: string,
+  list?: GitHubJumplistItem[]
+}
+
+export type GitHubJumplist = GitHubJumplistItem[];

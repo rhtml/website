@@ -1,8 +1,5 @@
-export type JumplistItem = {
-  label: string,
-  path: string
-}
+import { GitHubJumplist } from '../../types/GitHub';
 
 export type Props = {
-  list: JumplistItem[]
+  list: GitHubJumplist
 }

@@ -9,6 +9,7 @@ const DocTemplate: React.FC<Props> = (props) => {
   const {
     gitHubURL,
     markdown,
+    jumplist,
   } = props;
 
   const classes = useStyles();
@@ -22,10 +23,7 @@ const DocTemplate: React.FC<Props> = (props) => {
           </a>
         </Link>
         <Jumplist
-          list={[{
-            label: 'hello',
-            path: '/',
-          }]}
+          list={jumplist}
         />
       </div>
       <div className={classes.content}>
