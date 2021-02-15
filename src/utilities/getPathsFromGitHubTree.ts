@@ -24,13 +24,22 @@ const getPathsFromGitHubTree = (tree: GitHubTree, drillTo = 1): string[] => {
 
         if (drillTo === 1 && pathSegments.length === 1 && isMarkdownFile) {
           const slug = pathSegments[0];
-          return `/docs/${slug}`;
+          return {
+            params: {
+              topic: slug,
+            },
+          };
         }
 
         if (drillTo === 2 && pathSegments.length === 2 && isMarkdownFile) {
           const topic = pathSegments[0];
           const slug = pathSegments[1];
-          return `/docs/${topic}/${slug}`;
+          return {
+            params: {
+              topic,
+              doc: slug,
+            },
+          };
         }
       }
 

@@ -12,11 +12,12 @@ const Link: React.FC<LinkProps> = (props) => {
     children,
   } = props;
 
-  const isAbsolutePath = absoluteURLPattern.test(href);
-
   let hrefToUse = href;
+  const isAbsolutePath = absoluteURLPattern.test(href);
   if (!isAbsolutePath) {
-    hrefToUse = href.replace('.md', '');
+    const withoutExt = href.replace('.md', '');
+    // scope all relative links to '/docs'
+    hrefToUse = `/docs/${withoutExt}`;
   }
 
   let anchorAttributes = {};
