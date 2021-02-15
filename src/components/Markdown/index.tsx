@@ -11,7 +11,9 @@ const Markdown: React.FC<Props> = (props) => {
 
   return (
     <ReactMarkdown
-      plugins={[gfm]}
+      plugins={[
+        gfm,
+      ]}
       renderers={renderers}
     >
       {markdown}
