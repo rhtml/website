@@ -1,5 +1,6 @@
 import { createUseStyles } from 'react-jss';
 import { base } from '../../css';
+import colors from '../../css/colors';
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -17,6 +18,9 @@ const useStyles = createUseStyles({
     whiteSpace: 'nowrap',
     alignItems: 'center',
     textDecoration: 'none',
+    '&:hover': {
+      color: colors.darkGray,
+    },
   },
   logoIcon: {
     flexShrink: 0,
@@ -31,6 +35,15 @@ const useStyles = createUseStyles({
     padding: 0,
     width: '100%',
     justifyContent: 'flex-end',
+    '& > *:not(:last-child)': {
+      marginRight: base(),
+    },
+  },
+  menuItem: {
+    textDecoration: 'none',
+    '&:hover': {
+      color: colors.darkGray,
+    },
   },
 });
 

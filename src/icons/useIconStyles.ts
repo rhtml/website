@@ -1,5 +1,6 @@
 import { createUseStyles } from 'react-jss';
-import vars, { colors, base } from '../css/vars';
+import colors from '../css/colors';
+import vars, { base } from '../css/vars';
 
 export default createUseStyles({
   wrapper: {

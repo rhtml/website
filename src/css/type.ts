@@ -1,5 +1,6 @@
+import colors from './colors';
 import queries from './queries';
-import { base, colors } from './vars';
+import { base } from './vars';
 
 export const fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
 export const fontFamilyMono = 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';

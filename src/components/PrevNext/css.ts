@@ -1,5 +1,6 @@
 import { createUseStyles } from 'react-jss';
-import { base, colors } from '../../css';
+import { base } from '../../css';
+import colors from '../../css/colors';
 
 const useStyles = createUseStyles({
   wrapper: {

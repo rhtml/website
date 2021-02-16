@@ -1,17 +1,11 @@
+import colors from './colors';
+
 export const bodyFontSize = 16;
 export const baselinePX = 24;
 
 export const base = (multiplier = 1): string => `${(baselinePX / bodyFontSize) * multiplier}rem`;
 
 export const defaultWallColor = '#EDEDED';
-
-export const colors = {
-  white: '#FFFFFF',
-  lightGray: '#eef2f5',
-  lighterGray: '#f6f8fa',
-  gray: '#3d3d3d',
-  darkGray: '#151515',
-};
 
 export const breakpoints = {
   xs: 480,
@@ -43,7 +37,6 @@ export default {
   strokeWidth: 2,
   transTime: 100,
   transCurve: 'linear',
-  colors,
   shadows,
   defaultTransTime: 400,
   defaultTransCurve: 'cubic-bezier(.345,0,0,1)',

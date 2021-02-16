@@ -1,5 +1,5 @@
 import { createUseStyles } from 'react-jss';
-import { colors } from '../../../../css';
+import colors from '../../../../css/colors';
 
 const useStyles = createUseStyles({
   code: {

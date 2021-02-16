@@ -1,5 +1,5 @@
 // export * from './fonts';
-export * from './other';
+export * from './colors';
 export * from './other';
 export * from './queries';
 export * from './type';

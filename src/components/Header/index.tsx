@@ -13,17 +13,28 @@ const Header: React.FC<Props> = () => {
         <Link href="/">
           <a className={classes.logoAnchor}>
             <Logo className={classes.logoIcon} />
-            <span>
+            <b>
               Rasterize HTML
-            </span>
+            </b>
           </a>
         </Link>
       </div>
       <ul className={classes.menu}>
         <li>
           <Link href="/docs">
-            <a>
-              Docs
+            <a className={classes.menuItem}>
+              <b>
+                Docs
+              </b>
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/pricing">
+            <a className={classes.menuItem}>
+              <b>
+                Pricing
+              </b>
             </a>
           </Link>
         </li>
