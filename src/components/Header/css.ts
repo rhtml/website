@@ -9,8 +9,19 @@ const useStyles = createUseStyles({
     height: base(4),
     padding: base(),
   },
-  logo: {
+  logoWrapper: {
     flexShrink: 0,
+  },
+  logoAnchor: {
+    display: 'flex',
+    whiteSpace: 'nowrap',
+    alignItems: 'center',
+    textDecoration: 'none',
+  },
+  logoIcon: {
+    flexShrink: 0,
+    height: base(2),
+    marginRight: base(),
   },
   menu: {
     flexGrow: 1,
