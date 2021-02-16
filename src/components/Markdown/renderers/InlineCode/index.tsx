@@ -10,9 +10,7 @@ const InlineCode: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
-    <code
-     className={classes.code}
-    >
+    <code className={classes.code}>
       {value}
     </code>
   );

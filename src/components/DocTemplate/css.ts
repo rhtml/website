@@ -20,6 +20,9 @@ const useStyles = createUseStyles({
     padding: `0 ${base(2)} ${base(2)}`,
     width: '66%',
   },
+  markdownWrapper: {
+    marginBottom: base(2),
+  },
   footer: {
     marginTop: base(2),
     borderTop: `solid 1px ${colors.gray}`,

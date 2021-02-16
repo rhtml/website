@@ -7,7 +7,7 @@ export const defaultWallColor = '#EDEDED';
 
 export const colors = {
   white: '#FFFFFF',
-  lightGray: '#efefef',
+  lightGray: '#eef2f5',
   lighterGray: '#f6f8fa',
   gray: '#3d3d3d',
   darkGray: '#151515',

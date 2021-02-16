@@ -9,6 +9,7 @@ const useStyles = createUseStyles({
     borderBottom: '1px solid',
     borderColor: 'inherit',
     '&:hover': {
+      backgroundColor: colors.lightGray,
       color: colors.darkGray,
     },
   },

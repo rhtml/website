@@ -24,7 +24,9 @@ const DocTemplate: React.FC<Props> = (props) => {
         />
       </div>
       <div className={classes.content}>
-        <Markdown markdown={markdown} />
+        <div className={classes.markdownWrapper}>
+          <Markdown markdown={markdown} />
+        </div>
         <PrevNext list={jumplist} />
         <footer className={classes.footer}>
           <Link
