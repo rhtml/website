@@ -59,9 +59,7 @@ const List: React.FC<Props> = (props) => {
                     nestedHasActive && classes.isActive,
                   ].filter(Boolean).join(' ')}
                 >
-                  <b>
-                    {label}
-                  </b>
+                  {label}
                 </div>
                   <List
                     list={nestedList}

@@ -5,6 +5,7 @@ import Jumplist from '../Jumplist';
 import useStyles from './css';
 import Markdown from '../Markdown';
 import Anchor from '../Anchor';
+import PrevNext from '../PrevNext';
 
 const DocTemplate: React.FC<Props> = (props) => {
   const {
@@ -24,6 +25,7 @@ const DocTemplate: React.FC<Props> = (props) => {
       </div>
       <div className={classes.content}>
         <Markdown markdown={markdown} />
+        <PrevNext list={jumplist} />
         <footer className={classes.footer}>
           <Link
             href={gitHubURL}
