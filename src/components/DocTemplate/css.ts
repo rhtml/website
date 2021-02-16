@@ -1,24 +1,40 @@
 import { createUseStyles } from 'react-jss';
 import { base } from '../../css';
 import colors from '../../css/colors';
+import vars from '../../css/vars';
 
 const useStyles = createUseStyles({
-  wrapper: {
-    display: 'flex',
-    maxWidth: '1200px',
+  docTemplate: {
+    padding: `0 ${base(4)}`,
+  },
+  maxWidth: {
+    maxWidth: vars.contentWidth,
     margin: 'auto',
+    display: 'flex',
   },
   sidebar: {
-    flexShrink: 0,
+    padding: base(2),
+    paddingLeft: 0,
+    width: '33%',
+    height: `calc(100vh - ${base(6)})`,
     position: 'sticky',
     top: base(4),
-    height: '100%',
-    padding: base(),
-    width: '33%',
+    '&::after': {
+      content: '""',
+      backgroundColor: colors.lighterGray,
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      width: '100vw',
+      height: '100%',
+      zIndex: '-1',
+    },
   },
   content: {
     flexGrow: 1,
-    padding: `0 ${base(2)} ${base(2)}`,
+    paddingTop: base(2),
+    paddingLeft: base(4),
+    paddingBottom: base(2),
     width: '66%',
   },
   markdownWrapper: {

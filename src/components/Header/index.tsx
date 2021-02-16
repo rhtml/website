@@ -8,8 +8,8 @@ const Header: React.FC<Props> = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.logoWrapper}>
+    <div className={classes.header}>
+      <div className={classes.maxWidth}>
         <Link href="/">
           <a className={classes.logoAnchor}>
             <Logo className={classes.logoIcon} />
@@ -18,27 +18,27 @@ const Header: React.FC<Props> = () => {
             </b>
           </a>
         </Link>
+        <ul className={classes.menu}>
+          <li className={classes.menuItem}>
+            <Link href="/docs">
+              <a className={classes.itemAnchor}>
+                <b>
+                  Docs
+                </b>
+              </a>
+            </Link>
+          </li>
+          <li className={classes.menuItem}>
+            <Link href="/pricing">
+              <a className={classes.itemAnchor}>
+                <b>
+                  Pricing
+                </b>
+              </a>
+            </Link>
+          </li>
+        </ul>
       </div>
-      <ul className={classes.menu}>
-        <li>
-          <Link href="/docs">
-            <a className={classes.menuItem}>
-              <b>
-                Docs
-              </b>
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/pricing">
-            <a className={classes.menuItem}>
-              <b>
-                Pricing
-              </b>
-            </a>
-          </Link>
-        </li>
-      </ul>
     </div>
   );
 };

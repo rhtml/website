@@ -60,22 +60,6 @@ export default createUseStyles({
     code: {
       ...code,
     },
-    ul: {
-      paddingLeft: 0,
-      marginLeft: base(2),
-      margin: 0,
-      '& > li:not(:last-child)': {
-        marginBottom: base(0.5),
-      },
-    },
-    ol: {
-      paddingLeft: 0,
-      marginLeft: base(2),
-      margin: 0,
-      '& > li:not(:last-child)': {
-        marginBottom: base(0.5),
-      },
-    },
     svg: {
       '& > *': {
         vectorEffect: 'non-scaling-stroke',

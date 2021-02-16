@@ -14,8 +14,8 @@ const useStyles = createUseStyles({
     margin: 0,
     display: 'flex',
     flexDirection: 'column',
-    '&:not(:last-child)': {
-      marginBottom: base(),
+    '& > *:not(:last-child)': {
+      marginBottom: base(0.5),
     },
   },
   isNested: {

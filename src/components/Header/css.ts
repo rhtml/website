@@ -1,31 +1,40 @@
 import { createUseStyles } from 'react-jss';
 import { base } from '../../css';
 import colors from '../../css/colors';
+import vars from '../../css/vars';
 
 const useStyles = createUseStyles({
-  wrapper: {
-    display: 'flex',
+  header: {
     position: 'sticky',
     top: 0,
     height: base(4),
-    padding: base(),
+    padding: `${base()} ${base(4)}`,
+    display: 'flex',
+    alignItems: 'center',
   },
-  logoWrapper: {
-    flexShrink: 0,
+  maxWidth: {
+    width: '100%',
+    margin: 'auto',
+    maxWidth: vars.contentWidth,
+    display: 'flex',
   },
   logoAnchor: {
+    flexShrink: 0,
     display: 'flex',
     whiteSpace: 'nowrap',
     alignItems: 'center',
     textDecoration: 'none',
+    position: 'relative',
     '&:hover': {
       color: colors.darkGray,
     },
   },
   logoIcon: {
     flexShrink: 0,
-    height: base(2),
-    marginRight: base(),
+    width: base(1.5),
+    position: 'absolute',
+    right: `calc(100% + ${base(0.5)})`,
+    transform: 'translate3d(-50%, 0, 0)',
   },
   menu: {
     flexGrow: 1,
@@ -40,6 +49,9 @@ const useStyles = createUseStyles({
     },
   },
   menuItem: {
+
+  },
+  itemAnchor: {
     textDecoration: 'none',
     '&:hover': {
       color: colors.darkGray,

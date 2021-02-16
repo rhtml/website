@@ -17,27 +17,27 @@ const DocTemplate: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.sidebar}>
-        <Jumplist
-          list={jumplist}
-        />
-      </div>
-      <div className={classes.content}>
-        <div className={classes.markdownWrapper}>
-          <Markdown markdown={markdown} />
+    <div className={classes.docTemplate}>
+      <div className={classes.maxWidth}>
+        <div className={classes.sidebar}>
+          <Jumplist list={jumplist}/>
         </div>
-        <PrevNext list={jumplist} />
-        <footer className={classes.footer}>
-          <Link
-            href={gitHubURL}
-            passHref
-          >
-            <Anchor target="_blank">
-              Edit this page on GitHub
-            </Anchor>
-          </Link>
-        </footer>
+        <div className={classes.content}>
+          <div className={classes.markdownWrapper}>
+            <Markdown markdown={markdown} />
+          </div>
+          <PrevNext list={jumplist} />
+          <footer className={classes.footer}>
+            <Link
+              href={gitHubURL}
+              passHref
+            >
+              <Anchor target="_blank">
+                Edit this page on GitHub
+              </Anchor>
+            </Link>
+          </footer>
+        </div>
       </div>
     </div>
   );

@@ -37,6 +37,7 @@ export default {
   strokeWidth: 2,
   transTime: 100,
   transCurve: 'linear',
+  contentWidth: '1200px',
   shadows,
   defaultTransTime: 400,
   defaultTransCurve: 'cubic-bezier(.345,0,0,1)',
