@@ -6,8 +6,13 @@ const useStyles = createUseStyles({
   demoWidget: {
     padding: base(2),
     backgroundColor: colors.lighterGray,
+    '& > *': {
+      width: '50%',
+    },
   },
   codeWrapper: {
+  },
+  iFrameWrapper: {
     width: '50%',
   },
 });
