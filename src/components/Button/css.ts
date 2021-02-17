@@ -8,12 +8,19 @@ const useStyles = createUseStyles({
     padding: base(0.75),
     backgroundColor: colors.darkGray,
     color: colors.white,
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     '&:hover': {
       backgroundColor: colors.gray,
     },
   },
   anchor: {
 
+  },
+  separator: {
+    width: base(),
+    height: base(),
   },
 });
 

@@ -10,6 +10,7 @@ const EditableCodeBlock: React.FC<Props> = (props) => {
   const {
     onChange,
     initialValue,
+    className,
   } = props;
 
   const [code, setCode] = useState(initialValue);
@@ -38,6 +39,7 @@ const EditableCodeBlock: React.FC<Props> = (props) => {
           width: '100%',
         }}
         textareaClassName={classes.textArea}
+        className={className}
       />
     </div>
   );

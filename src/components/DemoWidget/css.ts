@@ -6,14 +6,35 @@ const useStyles = createUseStyles({
   demoWidget: {
     padding: base(2),
     backgroundColor: colors.lighterGray,
+  },
+  header: {
+    width: '100%',
+    display: 'flex',
+    marginBottom: base(2),
+  },
+  title: {
+    flexGrow: 1,
+    marginBottom: 0,
+  },
+  innerWrapper: {
+    marginBottom: base(2),
+    display: 'flex',
     '& > *': {
       width: '50%',
     },
   },
-  codeWrapper: {
+  item: {
+    display: 'flex',
+    flexDirection: 'column',
   },
-  iFrameWrapper: {
-    width: '50%',
+  codeBlock: {
+    flexGrow: 1,
+  },
+  iFrame: {
+    backgroundColor: 'white',
+    width: '100%',
+    border: 'none',
+    flexGrow: 1,
   },
 });
 
