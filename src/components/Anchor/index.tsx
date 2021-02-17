@@ -6,6 +6,7 @@ const Anchor = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
   const {
     children,
     unstyled,
+    ...rest
   } = props;
 
   const classes = useStyles();
@@ -16,7 +17,7 @@ const Anchor = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
         classes.anchor,
         unstyled && classes.unstyled,
       ].filter(Boolean).join(' ')}
-      {...props}
+      {...rest}
       ref={ref}
     >
       {children}

@@ -3,10 +3,11 @@ import InlineCode from './InlineCode';
 import CodeBlock from './CodeBlock';
 import List from './List';
 import Heading from './Heading';
+import { Props as CodeBlockProps } from './CodeBlock/types';
 
 const renderers = {
   link: Link,
-  code: CodeBlock,
+  code: (props: CodeBlockProps): React.ReactNode => <CodeBlock {...props} marginBottom background />,
   inlineCode: InlineCode,
   list: List,
   heading: Heading,

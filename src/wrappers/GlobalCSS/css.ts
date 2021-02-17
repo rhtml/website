@@ -1,6 +1,6 @@
 
 import { createUseStyles } from 'react-jss';
-import { bodyFontSize, base } from '../../css/vars';
+import { bodyFontSize } from '../../css/vars';
 import fonts from '../../css/fonts';
 import { code, fontFamily, h1, h2, h3, h4, h5, p, small } from '../../css/type';
 import colors from '../../css/colors';

@@ -1,12 +1,9 @@
-import DemoWidget from '../components/DemoWidget';
-import Docs from '../wrappers/Docs';
+import HomeHero from '../components/HomeHero';
 
 const HomePage: React.FC = () => (
-    <Docs>
-      <div>
-        <DemoWidget />
-      </div>
-    </Docs>
+  <div>
+    <HomeHero />
+  </div>
 );
 
 export default HomePage;

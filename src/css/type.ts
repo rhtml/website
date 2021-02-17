@@ -1,6 +1,6 @@
 import colors from './colors';
 import queries from './queries';
-import { base } from './vars';
+import { base, bodyFontSize } from './vars';
 
 export const fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
 export const fontFamilyMono = 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
@@ -71,7 +71,8 @@ export const small = {
 
 export const code = {
   fontFamily: fontFamilyMono,
-  lineHeight: 1,
+  lineHeight: 1.5,
+  fontSize: '12px',
 };
 
 export default {

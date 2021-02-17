@@ -3,12 +3,15 @@ import { base } from '../../css';
 import colors from '../../css/colors';
 
 const useStyles = createUseStyles({
-  demoWidget: {
+  wrapper: {
+
+  },
+  header: {
+    margin: `${base(4)} 0`,
+  },
+  widgetWrapper: {
     padding: base(2),
     backgroundColor: colors.lighterGray,
-  },
-  codeWrapper: {
-    width: '50%',
   },
 });
 

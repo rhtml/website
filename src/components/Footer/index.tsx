@@ -28,7 +28,7 @@ const Footer: React.FC<Props> = () => {
             href="https://github.com/jacobsfletch"
             target="_blank"
             rel="noopener noreferrer"
-            unstyled
+            unstyled={true}
           >
             Jacob Fletcher
           </Anchor>
