@@ -27,8 +27,7 @@ const Chevron: React.FC<Props> = (props) => {
         className={iconClasses.stroke}
         points="7.07 7.07 42.43 42.43 7.07 77.78"
       />
-</svg>
-
+    </svg>
   );
 };
 

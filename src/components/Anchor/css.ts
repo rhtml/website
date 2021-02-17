@@ -13,6 +13,13 @@ const useStyles = createUseStyles({
       color: colors.darkGray,
     },
   },
+  unstyled: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    '&:hover': {
+      backgroundColor: 'transparent',
+    },
+  },
 });
 
 export default useStyles;

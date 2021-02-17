@@ -42,4 +42,4 @@ export default createUseStyles({
     width: base(),
     height: base(),
   },
-});
+}, { link: true });

@@ -7,8 +7,8 @@ export const fontFamilyMono = 'Menlo, Monaco, Consolas, "Liberation Mono", "Cour
 
 export const h1 = {
   color: colors.darkGray,
-  fontSize: '60px',
-  lineHeight: '60px',
+  fontSize: '85px',
+  lineHeight: '85px',
   fontWeight: 'bold',
   marginTop: 0,
   marginBottom: base(2),

@@ -5,7 +5,7 @@ import vars from '../../css/vars';
 
 const useStyles = createUseStyles({
   docTemplate: {
-    padding: `0 ${base(4)}`,
+    padding: `0 ${base(2)}`,
   },
   maxWidth: {
     maxWidth: vars.contentWidth,
@@ -13,7 +13,7 @@ const useStyles = createUseStyles({
     display: 'flex',
   },
   sidebar: {
-    padding: base(2),
+    padding: base(4),
     paddingLeft: 0,
     width: '33%',
     height: `calc(100vh - ${base(6)})`,
@@ -32,7 +32,7 @@ const useStyles = createUseStyles({
   },
   content: {
     flexGrow: 1,
-    paddingTop: base(2),
+    paddingTop: base(4),
     paddingLeft: base(4),
     paddingBottom: base(2),
     width: '66%',

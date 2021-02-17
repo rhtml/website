@@ -5,18 +5,17 @@ import colors from '../../css/colors';
 const useStyles = createUseStyles({
   wrapper: {
     position: 'relative',
-    width: `calc(100% +  ${base(4)})`,
-    left: base(-2),
     display: 'flex',
     justifyContent: 'space-between',
-    backgroundColor: colors.lighterGray,
     '& > *': {
       textDecoration: 'none',
     },
   },
   item: {
-    width: '50%',
+    backgroundColor: colors.lighterGray,
+    width: `calc(50% - ${base()})`,
     padding: base(2),
+    margin: `0 ${base()}`,
     '&:hover': {
       backgroundColor: colors.lightGray,
       color: colors.darkGray,

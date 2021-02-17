@@ -8,7 +8,7 @@ const Header: React.FC<Props> = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.header}>
+    <header className={classes.header}>
       <div className={classes.maxWidth}>
         <Link href="/">
           <a className={classes.logoAnchor}>
@@ -39,7 +39,7 @@ const Header: React.FC<Props> = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </header>
   );
 };
 
