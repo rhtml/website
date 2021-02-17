@@ -1,15 +1,12 @@
 import { createUseStyles } from 'react-jss';
 import { base } from '../../css';
 import colors from '../../css/colors';
-import vars from '../../css/vars';
 
 const useStyles = createUseStyles({
   docTemplate: {
     padding: `0 ${base(2)}`,
   },
   maxWidth: {
-    maxWidth: vars.contentWidth,
-    margin: 'auto',
     display: 'flex',
   },
   sidebar: {
@@ -42,8 +39,6 @@ const useStyles = createUseStyles({
   },
   footer: {
     marginTop: base(2),
-    borderTop: `solid 1px ${colors.gray}`,
-    paddingTop: base(2),
   },
 });
 

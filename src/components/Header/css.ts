@@ -1,7 +1,6 @@
 import { createUseStyles } from 'react-jss';
 import { base } from '../../css';
 import colors from '../../css/colors';
-import vars from '../../css/vars';
 
 const useStyles = createUseStyles({
   header: {
@@ -13,9 +12,6 @@ const useStyles = createUseStyles({
     alignItems: 'center',
   },
   maxWidth: {
-    width: '100%',
-    margin: 'auto',
-    maxWidth: vars.contentWidth,
     display: 'flex',
   },
   logoAnchor: {

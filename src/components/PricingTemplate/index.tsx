@@ -2,6 +2,7 @@ import React from 'react';
 import { Props } from './types';
 import useStyles from './css';
 import Button from '../Button';
+import MaxWidth from '../MaxWidth';
 
 const PricingTemplate: React.FC<Props> = () => {
   const classes = useStyles();
@@ -14,7 +15,7 @@ const PricingTemplate: React.FC<Props> = () => {
         </h1>
       </header>
       <div className={classes.priceBlock}>
-        <div className={classes.maxWidth}>
+        <MaxWidth className={classes.maxWidth}>
           <div className={classes.tier}>
             <div>
               <b>
@@ -62,7 +63,7 @@ const PricingTemplate: React.FC<Props> = () => {
             </div>
             <Button label="Contact us" />
           </div>
-        </div>
+        </MaxWidth>
       </div>
     </div>
   );

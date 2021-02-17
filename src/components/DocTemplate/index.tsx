@@ -6,6 +6,7 @@ import useStyles from './css';
 import Markdown from '../Markdown';
 import Anchor from '../Anchor';
 import PrevNext from '../PrevNext';
+import MaxWidth from '../MaxWidth';
 
 const DocTemplate: React.FC<Props> = (props) => {
   const {
@@ -18,7 +19,7 @@ const DocTemplate: React.FC<Props> = (props) => {
 
   return (
     <div className={classes.docTemplate}>
-      <div className={classes.maxWidth}>
+      <MaxWidth className={classes.maxWidth}>
         <div className={classes.sidebar}>
           <Jumplist list={jumplist}/>
         </div>
@@ -38,7 +39,7 @@ const DocTemplate: React.FC<Props> = (props) => {
             </Link>
           </footer>
         </div>
-      </div>
+      </MaxWidth>
     </div>
   );
 };

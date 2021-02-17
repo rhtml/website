@@ -3,13 +3,14 @@ import Link from 'next/link';
 import { Props } from './types';
 import useStyles from './css';
 import Anchor from '../Anchor';
+import MaxWidth from '../MaxWidth';
 
 const Footer: React.FC<Props> = () => {
   const classes = useStyles();
 
   return (
     <footer className={classes.footer}>
-      <div className={classes.maxWidth}>
+      <MaxWidth className={classes.maxWidth}>
         <div className={classes.copyrightWrapper}>
           <Link href="/">
             <a className={classes.logoAnchor}>
@@ -41,7 +42,7 @@ const Footer: React.FC<Props> = () => {
             GitHub
           </Anchor>
         </div>
-      </div>
+      </MaxWidth>
     </footer>
   );
 };

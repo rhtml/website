@@ -1,6 +1,5 @@
 import { createUseStyles } from 'react-jss';
 import { base } from '../../css';
-import vars from '../../css/vars';
 
 const useStyles = createUseStyles({
   footer: {
@@ -10,9 +9,6 @@ const useStyles = createUseStyles({
     },
   },
   maxWidth: {
-    width: '100%',
-    margin: 'auto',
-    maxWidth: vars.contentWidth,
     display: 'flex',
     justifyContent: 'space-between',
   },

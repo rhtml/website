@@ -16,8 +16,6 @@ const useStyles = createUseStyles({
   },
   maxWidth: {
     padding: `${base(4)} 0`,
-    maxWidth: vars.contentWidth,
-    margin: 'auto',
     display: 'flex',
     position: 'relative',
     '&::after': {

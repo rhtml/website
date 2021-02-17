@@ -3,13 +3,14 @@ import Link from 'next/link';
 import { Props } from './types';
 import useStyles from './css';
 import Logo from '../Logo';
+import MaxWidth from '../MaxWidth';
 
 const Header: React.FC<Props> = () => {
   const classes = useStyles();
 
   return (
     <header className={classes.header}>
-      <div className={classes.maxWidth}>
+      <MaxWidth className={classes.maxWidth}>
         <Link href="/">
           <a className={classes.logoAnchor}>
             <Logo className={classes.logoIcon} />
@@ -38,7 +39,7 @@ const Header: React.FC<Props> = () => {
             </Link>
           </li>
         </ul>
-      </div>
+      </MaxWidth>
     </header>
   );
 };

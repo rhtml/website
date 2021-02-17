@@ -4,6 +4,7 @@ import colors from '../../css/colors';
 
 const useStyles = createUseStyles({
   wrapper: {
+    backgroundColor: colors.lighterGray,
     position: 'relative',
     display: 'flex',
     justifyContent: 'space-between',
@@ -12,8 +13,7 @@ const useStyles = createUseStyles({
     },
   },
   item: {
-    backgroundColor: colors.lighterGray,
-    width: `calc(50% - ${base()})`,
+    width: '50%',
     padding: base(2),
     margin: `0 ${base()}`,
     '&:hover': {
