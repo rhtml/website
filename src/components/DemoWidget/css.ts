@@ -1,19 +1,23 @@
 import { createUseStyles } from 'react-jss';
 import { base } from '../../css';
 import colors from '../../css/colors';
+import shadows from '../../css/shadows';
+import vars from '../../css/vars';
 
 const useStyles = createUseStyles({
   demoWidget: {
-    padding: base(2),
     backgroundColor: colors.lighterGray,
   },
   header: {
     width: '100%',
     display: 'flex',
     marginBottom: base(2),
+    alignItems: 'center',
+  },
+  titleWrapper: {
+    flexGrow: 1,
   },
   title: {
-    flexGrow: 1,
     marginBottom: 0,
   },
   innerWrapper: {
@@ -31,10 +35,91 @@ const useStyles = createUseStyles({
     flexGrow: 1,
   },
   iFrame: {
-    backgroundColor: 'white',
+    border: `1px ${colors.lightGray} solid`,
     width: '100%',
-    border: 'none',
     flexGrow: 1,
+    borderRadius: `${vars.borderRadius}px`,
+  },
+  dropdown: {
+    position: 'relative',
+    height: '100%',
+  },
+  dropdownButton: {
+    padding: `${base()} ${base(0.5)}`,
+    backgroundColor: colors.darkGray,
+    position: 'relative',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    '&::before': {
+      position: 'absolute',
+      content: '""',
+      left: '0',
+      top: '0',
+      height: '100%',
+      width: '1px',
+      backgroundColor: colors.white,
+    },
+    '&:hover': {
+      cursor: 'pointer',
+      backgroundColor: colors.gray,
+      '& path': {
+        stroke: colors.white,
+      },
+    },
+  },
+  dropdownContent: {
+    opacity: 0,
+    position: 'absolute',
+    right: 0,
+    top: `calc(100% + ${base(0.5)})`,
+    backgroundColor: colors.darkGray,
+    padding: base(),
+    color: colors.lightGray,
+    width: '350px',
+    boxShadow: shadows.l,
+  },
+  dropdownOpen: {
+    opacity: 1,
+  },
+  imageTypeWrapper: {
+    position: 'relative',
+    display: 'flex',
+    marginTop: base(),
+  },
+  imageTypeLabel: {
+    marginRight: base(),
+  },
+  imageTypes: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexGrow: 1,
+    '& > *:not(:last-child)': {
+      marginRight: base(0.5),
+    },
+  },
+  imageType: {
+    opacity: 0.5,
+    width: '50%',
+    display: 'flex',
+    justifyContent: 'center',
+    borderRadius: `${vars.borderRadius}px`,
+    '&:hover': {
+      cursor: 'pointer',
+      opacity: 1,
+      backgroundColor: colors.gray,
+    },
+  },
+  activeImageType: {
+    opacity: 1,
+    backgroundColor: colors.lightGray,
+    color: colors.darkGray,
+    '&:hover': {
+      backgroundColor: colors.lightGray,
+    },
+  },
+  errors: {
+    marginTop: base(),
   },
 });
 

@@ -4,3 +4,4 @@ export * from './other';
 export * from './queries';
 export * from './type';
 export * from './vars';
+export * from './shadows';

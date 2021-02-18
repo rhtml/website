@@ -15,14 +15,6 @@ export const breakpoints = {
   xl: 1440,
 };
 
-export const shadows = {
-  xs: '0px 2px 4px rgba(0, 0, 0, 0.05)',
-  s: '0px 4px 10px rgba(0, 0, 0, 0.05)',
-  l: '0px 40px 120px rgba(0, 0, 0, 0.05)',
-  inputS: '0px 2px 4px 0px rgba(0, 0, 0, 0.05)',
-  inputM: '0px 2px 6px 0px rgba(0, 0, 0, 0.05)',
-};
-
 const shadowSpread = 'inset 0px 0px 0px 2px';
 export const borderShadows = {
   lightGray: `${shadowSpread} ${colors.lightGray}`,
@@ -33,12 +25,11 @@ export default {
   bodyFontSize,
   baselinePX,
   base,
-  borderRadius: 5,
+  borderRadius: 4,
   strokeWidth: 2,
   transTime: 100,
   transCurve: 'linear',
   contentWidth: '1200px',
-  shadows,
   defaultTransTime: 400,
   defaultTransCurve: 'cubic-bezier(.345,0,0,1)',
   breakpoints,

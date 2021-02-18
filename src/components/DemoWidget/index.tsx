@@ -1,14 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Props } from './types';
+import { APIError, Props } from './types';
 import useStyles from './css';
 import EditableCodeBlock from '../EditableCodeBlock';
 import Button from '../Button';
 import HiddenDownloadButton from '../HiddenDownloadButton';
 import arrayBufferToBase64 from '../../utilities/arrayBufferToBase64';
+import Chevron from '../../icons/Chevron';
+import Input from '../../forms/fields/Input';
+import Errors from '../../forms/Errors';
 
 const initialValue = `
 <html>
-  <body>
+  <body style="background-color: white; width: 400px; height: 500px;">
     <p>
       Hello, world!
     </p>
@@ -16,11 +19,19 @@ const initialValue = `
 </html>
 `;
 
+interface IRes {
+  errors: APIError[]
+}
+
 const DemoWidget: React.FC<Props> = () => {
   const classes = useStyles();
   const [code, setCode] = useState(initialValue);
   const [hrefToDownload, setHrefToDownload] = useState<string>();
   const [isDownloadingImage, setIsDownloadingImage] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [filename, setFilename] = useState();
+  const [selectedImageType, setSelectedImageType] = useState('png');
+  const [apiErrors, setAPIErrors] = useState<APIError[]>();
 
   const generateImage = useCallback(async () => {
     const minifiedCode = code.replace(/\n\s+|\n/g, '');
@@ -32,19 +43,32 @@ const DemoWidget: React.FC<Props> = () => {
       },
       body: JSON.stringify({
         html: [minifiedCode],
+        type: selectedImageType,
       }),
     });
 
     const json = await res.json();
 
-    if (res.status === 200) {
+    if (json) {
       const {
-        document: {
-          data,
-        },
-      } = json.images[0];
-      const base64 = arrayBufferToBase64(data);
-      if (base64) setHrefToDownload(`data:image/png;base64,${base64}`);
+        errors,
+      } = json as IRes;
+
+      if (res.status === 200) {
+        const {
+          document: {
+            data,
+          },
+        } = json.images[0];
+        const base64 = arrayBufferToBase64(data);
+        if (base64) setHrefToDownload(`data:image/${selectedImageType};base64,${base64}`);
+      }
+
+      if (Array.isArray(errors) && errors.length > 0) {
+        setAPIErrors(errors);
+        setHrefToDownload(undefined);
+        setIsDownloadingImage(false);
+      }
     }
   }, []);
 
@@ -64,21 +88,84 @@ const DemoWidget: React.FC<Props> = () => {
   return (
     <div className={classes.demoWidget}>
       <header className={classes.header}>
-        <h3 className={classes.title}>
-          Try it
-        </h3>
+        <div className={classes.titleWrapper}>
+          <h3 className={classes.title}>
+            Try it
+          </h3>
+          <Errors
+            className={classes.errors}
+            errors={apiErrors}
+          />
+       </div>
         <Button
-          icon="download"
-          label={isDownloadingImage ? '...' : undefined}
+          label={isDownloadingImage ? 'Downloading...' : 'Export'}
           onClick={() => {
             if (!isDownloadingImage) { // protect against brute force
               setIsDownloadingImage(true);
             }
           }}
         />
+        <div className={classes.dropdown}>
+          <div
+            className={classes.dropdownButton}
+            onClick={() => {
+              setSettingsOpen(!settingsOpen);
+            }}
+          >
+            <Chevron
+              size="s"
+              color="white"
+              rotation="90"
+            />
+          </div>
+          <div
+            className={[
+              classes.dropdownContent,
+              settingsOpen && classes.dropdownOpen,
+            ].filter(Boolean).join(' ')}
+          >
+            <Input
+              type="text"
+              label="Filename:"
+              name="filename"
+              onChange={(incomingValue) => {
+                setFilename(incomingValue);
+              }}
+              placeholder={`rhtml-rocks.${selectedImageType}`}
+              value={filename}
+            />
+            <div className={classes.imageTypeWrapper}>
+              <div className={classes.imageTypeLabel}>
+                Type:
+              </div>
+              <div className={classes.imageTypes}>
+                <div
+                  onClick={() => setSelectedImageType('png')}
+                  className={[
+                    classes.imageType,
+                    selectedImageType === 'png' && classes.activeImageType,
+                  ].filter(Boolean).join(' ')}
+                >
+                  PNG
+                </div>
+                <div
+                  onClick={() => setSelectedImageType('jpg')}
+                  className={[
+                    classes.imageType,
+                    selectedImageType === 'jpg' && classes.activeImageType,
+                  ].filter(Boolean).join(' ')}
+                >
+                  JPG
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <HiddenDownloadButton
           onDownload={onDownload}
           href={hrefToDownload}
+          filename={filename}
+          fileExtension={`.${selectedImageType}`}
         />
       </header>
       <div className={classes.innerWrapper}>

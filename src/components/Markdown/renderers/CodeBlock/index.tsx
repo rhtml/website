@@ -1,10 +1,10 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { base } from '../../../../css';
-import useStyles from './css';
 import { Props } from './types';
 import { code as codeTypeStyles } from '../../../../css/type';
 import colors from '../../../../css/colors';
+import vars from '../../../../css/vars';
 
 const CodeBlock: React.FC<Props> = (props) => {
   const {
@@ -20,7 +20,7 @@ const CodeBlock: React.FC<Props> = (props) => {
       language={language}
       customStyle={{
         padding: base(),
-        borderRadius: '4px',
+        borderRadius: `${vars.borderRadius}px`,
         marginTop: 0,
         marginBottom: marginBottom ? base() : 0,
         background: background ? colors.darkGray : 'transparent',

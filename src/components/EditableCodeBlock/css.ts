@@ -1,6 +1,7 @@
 import { createUseStyles } from 'react-jss';
 import { base } from '../../css';
 import colors from '../../css/colors';
+import vars from '../../css/vars';
 
 const useStyles = createUseStyles({
   editableCodeBlock: {
@@ -11,7 +12,7 @@ const useStyles = createUseStyles({
     padding: `${base()} !important`,
     caretColor: colors.white,
     background: `${colors.darkGray} !important`,
-    borderRadius: '4px',
+    borderRadius: `${vars.borderRadius}px`,
   },
 });
 

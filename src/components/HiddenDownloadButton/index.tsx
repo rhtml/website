@@ -11,6 +11,8 @@ const HiddenDownloadButton: React.FC<Props> = (props) => {
   const {
     href: hrefFromProps,
     onDownload,
+    filename,
+    fileExtension = '.png',
   } = props;
 
   const anchorRef = useRef<HTMLAnchorElement>(null);
@@ -19,7 +21,7 @@ const HiddenDownloadButton: React.FC<Props> = (props) => {
   useEffect(() => {
     if (hrefFromProps) {
       setDownloadAttributes({
-        download: `${formatDateTime()}.png`,
+        download: `${filename || formatDateTime()}${fileExtension}`,
         href: hrefFromProps,
       });
     }

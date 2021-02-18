@@ -1,4 +1,6 @@
 export type Props = {
   href: string,
-  onDownload: () => void,
+  onDownload?: () => void,
+  filename?: string,
+  fileExtension?: string
 }
