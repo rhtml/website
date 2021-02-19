@@ -1,5 +1,5 @@
 import { createUseStyles } from 'react-jss';
-import { base } from '../../css';
+import { base, jumbo } from '../../css';
 import colors from '../../css/colors';
 
 const useStyles = createUseStyles({
@@ -15,6 +15,10 @@ const useStyles = createUseStyles({
     margin: `0 ${base(-2)}`,
     width: `calc(100% + ${base(4)})`,
     backgroundColor: colors.lighterGray,
+  },
+  title: {
+    ...jumbo,
+    marginBottom: 0,
   },
 });
 

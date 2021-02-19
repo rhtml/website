@@ -11,10 +11,10 @@ const HomeHero: React.FC<Props> = () => {
     <div className={classes.wrapper}>
       <MaxWidth>
         <header className={classes.header}>
-          <h1>
-          Take screenshots of URLs or HTML
-        </h1>
-      </header>
+          <h1 className={classes.title}>
+            Design in HTML
+          </h1>
+        </header>
       <div className={classes.widgetWrapper}>
         <DemoWidget />
       </div>

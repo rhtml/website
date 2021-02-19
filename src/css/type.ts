@@ -5,7 +5,7 @@ import { base } from './vars';
 export const fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
 export const fontFamilyMono = 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
 
-export const h1 = {
+export const jumbo = {
   color: colors.darkerGray,
   fontSize: '85px',
   lineHeight: 1,
@@ -15,38 +15,47 @@ export const h1 = {
   [queries.m]: {
     marginBottom: base(),
     fontSize: '45px',
-    lineHeight: '45px',
+  },
+};
+
+export const h1 = {
+  color: colors.darkerGray,
+  fontSize: '54px',
+  lineHeight: 1,
+  fontWeight: 'bold',
+  marginTop: 0,
+  marginBottom: base(2),
+  [queries.m]: {
+    marginBottom: base(),
+    fontSize: '45px',
   },
 };
 
 export const h2 = {
   color: colors.darkerGray,
-  fontSize: '68px',
+  fontSize: '44px',
   lineHeight: 1,
   marginTop: 0,
   marginBottom: base(1),
   [queries.m]: {
     fontSize: '26px',
-    lineHeight: '30px',
   },
 };
 
 export const h3 = {
   color: colors.darkerGray,
-  fontSize: '54px',
+  fontSize: '32px',
   lineHeight: 1,
   marginTop: 0,
   marginBottom: base(1),
   [queries.m]: {
     fontSize: '18px',
-    lineHeight: '24px',
   },
 };
 
 export const h4 = {
   color: colors.darkerGray,
-  fontSize: '18px',
-  lineHeight: 1.25,
+  fontSize: '24px',
   marginTop: 0,
   marginBottom: base(1),
 };
