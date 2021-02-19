@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { Props } from './types';
-import Jumplist from '../Jumplist';
+import Jumplist from '../../components/Jumplist';
 import useStyles from './css';
-import Markdown from '../Markdown';
-import Anchor from '../Anchor';
-import PrevNext from '../PrevNext';
-import MaxWidth from '../MaxWidth';
+import Markdown from '../../components/Markdown';
+import Anchor from '../../components/Anchor';
+import PrevNext from '../../components/PrevNext';
+import MaxWidth from '../../components/MaxWidth';
 
 const DocTemplate: React.FC<Props> = (props) => {
   const {

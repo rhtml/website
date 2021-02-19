@@ -1,5 +1,5 @@
 import React from 'react';
-import PricingTemplate from '../components/PricingTemplate';
+import PricingTemplate from '../templates/PricingTemplate';
 
 const Pricing: React.FC = () => (
   <div>

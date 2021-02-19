@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import GlobalCSS from '../wrappers/GlobalCSS';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../blocks/Header';
+import Footer from '../blocks/Footer';
 import Notifications from '../wrappers/Notifications';
 
 type Props = {

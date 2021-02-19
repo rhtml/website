@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import getPathsFromGitHubTree from '../../../utilities/getPathsFromGitHubTree';
 import parseGitHubFileContents from '../../../utilities/parseGitHubFileContents';
 import { getGitHubMasterTree, getGitHubFile } from '../../../api';
-import DocTemplate from '../../../components/DocTemplate';
+import DocTemplate from '../../../templates/DocTemplate';
 import { GitHubJumplist } from '../../../types/GitHub';
 
 type Props = {

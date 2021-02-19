@@ -1,4 +1,4 @@
-import HomeHero from '../components/HomeHero';
+import HomeHero from '../blocks/HomeHero';
 
 const HomePage: React.FC = () => (
   <div>

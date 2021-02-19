@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Props } from './types';
 import useStyles from './css';
-import Logo from '../Logo';
-import MaxWidth from '../MaxWidth';
+import Logo from '../../components/Logo';
+import MaxWidth from '../../components/MaxWidth';
 
 const Header: React.FC<Props> = () => {
   const classes = useStyles();

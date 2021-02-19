@@ -1,8 +1,8 @@
 import React from 'react';
 import { Props } from './types';
 import useStyles from './css';
-import MaxWidth from '../MaxWidth';
-import DemoWidget from '../DemoWidget';
+import MaxWidth from '../../components/MaxWidth';
+import DemoWidget from '../../components/DemoWidget';
 
 const HomeHero: React.FC<Props> = () => {
   const classes = useStyles();

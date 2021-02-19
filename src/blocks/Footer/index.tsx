@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Props } from './types';
 import useStyles from './css';
-import Anchor from '../Anchor';
-import MaxWidth from '../MaxWidth';
+import Anchor from '../../components/Anchor';
+import MaxWidth from '../../components/MaxWidth';
 
 const Footer: React.FC<Props> = () => {
   const classes = useStyles();

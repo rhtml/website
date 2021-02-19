@@ -1,8 +1,8 @@
 import React from 'react';
 import { Props } from './types';
 import useStyles from './css';
-import Button from '../Button';
-import MaxWidth from '../MaxWidth';
+import Button from '../../components/Button';
+import MaxWidth from '../../components/MaxWidth';
 
 const PricingTemplate: React.FC<Props> = () => {
   const classes = useStyles();
