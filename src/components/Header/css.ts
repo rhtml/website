@@ -22,7 +22,7 @@ const useStyles = createUseStyles({
     textDecoration: 'none',
     position: 'relative',
     '&:hover': {
-      color: colors.darkGray,
+      color: colors.darkerGray,
     },
   },
   logoIcon: {
@@ -50,7 +50,7 @@ const useStyles = createUseStyles({
   itemAnchor: {
     textDecoration: 'none',
     '&:hover': {
-      color: colors.darkGray,
+      color: colors.darkerGray,
     },
   },
 });

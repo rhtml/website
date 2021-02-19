@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
 import Editor from 'react-simple-code-editor';
-import sanitizeHtml from 'sanitize-html';
 import { Props } from './types';
 import useStyles from './css';
 import CodeBlock from '../Markdown/renderers/CodeBlock';
@@ -11,6 +10,7 @@ const EditableCodeBlock: React.FC<Props> = (props) => {
     onChange,
     initialValue,
     className,
+    textareaClassName,
   } = props;
 
   const [code, setCode] = useState(initialValue);
@@ -18,14 +18,10 @@ const EditableCodeBlock: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   const handleChange = useCallback((incomingValue) => {
-    const sanitizedHTML = sanitizeHtml(incomingValue, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat(['html', 'body']),
-    });
-
-    setCode(sanitizedHTML);
     if (typeof onChange === 'function') {
-      onChange(sanitizedHTML);
+      onChange(incomingValue);
     }
+    setCode(incomingValue);
   }, []);
 
   return (
@@ -38,7 +34,10 @@ const EditableCodeBlock: React.FC<Props> = (props) => {
           ...codeTypeStyles,
           width: '100%',
         }}
-        textareaClassName={classes.textArea}
+        textareaClassName={[
+          classes.textArea,
+          textareaClassName,
+        ].filter(Boolean).join(' ')}
         className={className}
       />
     </div>

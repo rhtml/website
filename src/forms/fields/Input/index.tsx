@@ -21,6 +21,7 @@ const Input: React.FC<Props> = (props) => {
     step,
     required,
     placeholder,
+    appendText,
   } = props;
 
   const formContext = undefined;
@@ -57,38 +58,45 @@ const Input: React.FC<Props> = (props) => {
         >
           {`${label}${required ? '*' : ''}`}
         </div>
-        <input
-          {...{
-            ref: inputRef,
-            id,
-            name,
-            type,
-            disabled,
-            autoComplete,
-            className: classes.htmlInput,
-            placeholder,
-            onChange: (e) => {
-              const { value: incomingValue } = e.target;
-              setInternalState(incomingValue);
-              if (formContext) {
-                formContext.dispatchFieldState({
-                  type: 'UPDATE_FIELD',
-                  payload: {
-                    name,
-                    value: incomingValue,
-                  },
-                });
-              }
-              if (typeof onChange === 'function') onChange(incomingValue);
-            },
-            min,
-            step,
-            value: internalState || '',
-            required,
-          }}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-        />
+        <div className={classes.inputWrapper}>
+          <input
+            {...{
+              ref: inputRef,
+              id,
+              name,
+              type,
+              disabled,
+              autoComplete,
+              className: classes.htmlInput,
+              placeholder,
+              onChange: (e) => {
+                const { value: incomingValue } = e.target;
+                setInternalState(incomingValue);
+                if (formContext) {
+                  formContext.dispatchFieldState({
+                    type: 'UPDATE_FIELD',
+                    payload: {
+                      name,
+                      value: incomingValue,
+                    },
+                  });
+                }
+                if (typeof onChange === 'function') onChange(incomingValue);
+              },
+              min,
+              step,
+              value: internalState || '',
+              required,
+            }}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+          />
+          {appendText && (
+            <div className={classes.appendedText}>
+              {appendText}
+            </div>
+          )}
+        </div>
       </label>
     </div>
   );

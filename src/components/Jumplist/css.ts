@@ -27,11 +27,11 @@ const useStyles = createUseStyles({
   anchor: {
     textDecoration: 'none',
     '&:hover': {
-      color: colors.darkGray,
+      color: colors.darkerGray,
     },
   },
   isActive: {
-    color: colors.darkGray,
+    color: colors.darkerGray,
     fontWeight: 'bold',
   },
 });

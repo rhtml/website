@@ -6,13 +6,13 @@ const useStyles = createUseStyles({
   button: {
     ...resetButton,
     padding: base(0.75),
-    backgroundColor: colors.darkGray,
+    backgroundColor: colors.darkerGray,
     color: colors.white,
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
     '&:hover': {
-      backgroundColor: colors.gray,
+      backgroundColor: colors.darkGray,
     },
   },
   anchor: {

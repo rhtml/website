@@ -18,7 +18,7 @@ const useStyles = createUseStyles({
     margin: `0 ${base()}`,
     '&:hover': {
       backgroundColor: colors.lightGray,
-      color: colors.darkGray,
+      color: colors.darkerGray,
     },
   },
   label: {

@@ -1,5 +1,6 @@
 export type Props = {
   onChange?: (string) => void,
   initialValue?: string,
-  className?: string
+  className?: string,
+  textareaClassName?: string
 };

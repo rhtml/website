@@ -13,5 +13,6 @@ export type Props = {
   min?: number,
   step?: number,
   required?: boolean,
-  placeholder?: string
+  placeholder?: string,
+  appendText?: string
 }

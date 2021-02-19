@@ -5,7 +5,7 @@ const useStyles = createUseStyles({
   wrapper: {
     '& *': {
       fill: 'none',
-      stroke: colors.darkGray,
+      stroke: colors.darkerGray,
       strokeWidth: '1px',
       vectorEffect: 'non-scaling-stroke',
     },

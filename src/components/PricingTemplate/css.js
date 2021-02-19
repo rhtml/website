@@ -51,7 +51,7 @@ const useStyles = createUseStyles({
     position: 'relative',
   },
   priceWrapper: {
-    color: colors.darkGray,
+    color: colors.darkerGray,
   },
   pricePrefix: {
     position: 'absolute',

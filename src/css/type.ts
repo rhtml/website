@@ -6,7 +6,7 @@ export const fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto
 export const fontFamilyMono = 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
 
 export const h1 = {
-  color: colors.darkGray,
+  color: colors.darkerGray,
   fontSize: '85px',
   lineHeight: 1,
   fontWeight: 'bold',
@@ -20,7 +20,7 @@ export const h1 = {
 };
 
 export const h2 = {
-  color: colors.darkGray,
+  color: colors.darkerGray,
   fontSize: '68px',
   lineHeight: 1,
   marginTop: 0,
@@ -32,7 +32,7 @@ export const h2 = {
 };
 
 export const h3 = {
-  color: colors.darkGray,
+  color: colors.darkerGray,
   fontSize: '54px',
   lineHeight: 1,
   marginTop: 0,
@@ -44,7 +44,7 @@ export const h3 = {
 };
 
 export const h4 = {
-  color: colors.darkGray,
+  color: colors.darkerGray,
   fontSize: '18px',
   lineHeight: 1.25,
   marginTop: 0,

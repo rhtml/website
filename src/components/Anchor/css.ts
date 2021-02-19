@@ -5,12 +5,12 @@ const useStyles = createUseStyles({
   anchor: {
     backgroundColor: colors.lighterGray,
     textDecoration: 'none',
-    color: colors.gray,
+    color: colors.darkGray,
     borderBottom: '1px solid',
     borderColor: 'inherit',
     '&:hover': {
       backgroundColor: colors.lightGray,
-      color: colors.darkGray,
+      color: colors.darkerGray,
     },
   },
   unstyled: {

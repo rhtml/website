@@ -25,7 +25,7 @@ const PrevNext: React.FC<Props> = (props) => {
             <div className={classes.label}>
               <div className={classes.arrowIcon}>
                 <Chevron
-                  color="darkGray"
+                  color="darkerGray"
                   rotation="180"
                 />
               </div>
@@ -45,7 +45,7 @@ const PrevNext: React.FC<Props> = (props) => {
                 Up Next
               </b>
               <div className={classes.arrowIcon}>
-                <Chevron color="darkGray" />
+                <Chevron color="darkerGray" />
               </div>
             </div>
             {next.label}

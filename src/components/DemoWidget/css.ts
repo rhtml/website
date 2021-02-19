@@ -27,26 +27,13 @@ const useStyles = createUseStyles({
       width: '50%',
     },
   },
-  item: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  codeBlock: {
-    flexGrow: 1,
-  },
-  iFrame: {
-    border: `1px ${colors.lightGray} solid`,
-    width: '100%',
-    flexGrow: 1,
-    borderRadius: `${vars.borderRadius}px`,
-  },
   dropdown: {
     position: 'relative',
     height: '100%',
   },
   dropdownButton: {
     padding: `${base()} ${base(0.5)}`,
-    backgroundColor: colors.darkGray,
+    backgroundColor: colors.darkerGray,
     position: 'relative',
     display: 'inline-flex',
     justifyContent: 'center',
@@ -62,7 +49,7 @@ const useStyles = createUseStyles({
     },
     '&:hover': {
       cursor: 'pointer',
-      backgroundColor: colors.gray,
+      backgroundColor: colors.darkGray,
       '& path': {
         stroke: colors.white,
       },
@@ -73,11 +60,12 @@ const useStyles = createUseStyles({
     position: 'absolute',
     right: 0,
     top: `calc(100% + ${base(0.5)})`,
-    backgroundColor: colors.darkGray,
+    backgroundColor: colors.darkerGray,
     padding: base(),
     color: colors.lightGray,
     width: '350px',
     boxShadow: shadows.l,
+    zIndex: 1,
   },
   dropdownOpen: {
     opacity: 1,
@@ -107,19 +95,47 @@ const useStyles = createUseStyles({
     '&:hover': {
       cursor: 'pointer',
       opacity: 1,
-      backgroundColor: colors.gray,
+      backgroundColor: colors.darkGray,
     },
   },
   activeImageType: {
     opacity: 1,
     backgroundColor: colors.lightGray,
-    color: colors.darkGray,
+    color: colors.darkerGray,
     '&:hover': {
       backgroundColor: colors.lightGray,
     },
   },
   errors: {
     marginTop: base(),
+  },
+  item: {
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'relative',
+  },
+  itemTitle: {
+    display: 'flex',
+    marginBottom: base(),
+    alignItems: 'center',
+  },
+  codeBlock: {
+    flexGrow: 1,
+  },
+  codeBlockTextArea: {
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+  },
+  iFrame: {
+    border: `1px ${colors.darkGray} solid`,
+    width: '100%',
+    flexGrow: 1,
+    borderRadius: `${vars.borderRadius}px`,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
+  },
+  tooltip: {
+    marginLeft: base(0.5),
   },
 });
 

@@ -27,7 +27,7 @@ export default createUseStyles({
   },
   labelDisabled: {
     composes: '$label',
-    color: colors.gray,
+    color: colors.darkGray,
   },
   labelError: {
     composes: '$label',
@@ -39,9 +39,14 @@ export default createUseStyles({
     display: 'block',
     width: '100%',
   },
+  inputWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: colors.darkGray,
+  },
   htmlInput: {
+    backgroundColor: 'transparent',
     fontSize: `${bodyFontSize}px`,
-    backgroundColor: colors.gray,
     color: 'inherit',
     fontWeight: 'bold',
     padding: `${base(0.5)} 0`,
@@ -56,7 +61,11 @@ export default createUseStyles({
       outline: 'none',
     },
     '&:disabled': {
-      color: colors.gray,
+      color: colors.darkGray,
     },
+  },
+  appendedText: {
+    fontWeight: 'bold',
+    margin: `0 ${base(0.5)}`,
   },
 });

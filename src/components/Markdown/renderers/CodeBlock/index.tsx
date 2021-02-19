@@ -23,9 +23,10 @@ const CodeBlock: React.FC<Props> = (props) => {
         borderRadius: `${vars.borderRadius}px`,
         marginTop: 0,
         marginBottom: marginBottom ? base() : 0,
-        background: background ? colors.darkGray : 'transparent',
+        background: background ? colors.darkerGray : 'transparent',
         ...codeTypeStyles,
       }}
+      wrapLongLines
       codeTagProps={{
         style: {
           ...codeTypeStyles,

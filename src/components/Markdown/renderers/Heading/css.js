@@ -19,7 +19,7 @@ const useStyles = createUseStyles({
     transform: 'translate3d(0, -50%, 0)',
     opacity: 0,
     '& path': {
-      fill: colors.darkGray,
+      fill: colors.darkerGray,
     },
   },
 });

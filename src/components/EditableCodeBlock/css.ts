@@ -11,8 +11,11 @@ const useStyles = createUseStyles({
   textArea: {
     padding: `${base()} !important`,
     caretColor: colors.white,
-    background: `${colors.darkGray} !important`,
+    background: `${colors.darkerGray} !important`,
     borderRadius: `${vars.borderRadius}px`,
+    '&:focus': {
+      outline: 'none',
+    },
   },
 });
 

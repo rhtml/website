@@ -15,7 +15,7 @@ export default createUseStyles({
       fontFamily,
       fontSize: bodyFontSize,
       lineHeight: 1.5,
-      color: colors.gray,
+      color: colors.darkGray,
     },
     body: {
       margin: '0',

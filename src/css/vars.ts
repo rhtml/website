@@ -18,7 +18,7 @@ export const breakpoints = {
 const shadowSpread = 'inset 0px 0px 0px 2px';
 export const borderShadows = {
   lightGray: `${shadowSpread} ${colors.lightGray}`,
-  gray: `${shadowSpread} ${colors.gray}`,
+  gray: `${shadowSpread} ${colors.darkGray}`,
 };
 
 export default {
