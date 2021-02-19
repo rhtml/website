@@ -3,6 +3,7 @@ import { AppProps } from 'next/app';
 import GlobalCSS from '../wrappers/GlobalCSS';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Notifications from '../wrappers/Notifications';
 
 type Props = {
   pageProps: Record<string, unknown>
@@ -19,9 +20,11 @@ const App: React.FC<Props> = ({ Component, pageProps }: AppProps) => {
 
   return (
     <GlobalCSS>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <Notifications>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </Notifications>
     </GlobalCSS>
   );
 };

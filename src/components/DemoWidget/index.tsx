@@ -13,6 +13,7 @@ import allowedTags from './allowedTags';
 import allowedAttributes from './allowedAttributes';
 import HelpTooltip from '../HelpTooltip';
 import Anchor from '../Anchor';
+import { useNotifications } from '../../wrappers/Notifications';
 
 const initialValue = `
 <html>
@@ -37,6 +38,7 @@ const DemoWidget: React.FC<Props> = () => {
   const [filename, setFilename] = useState();
   const [selectedImageType, setSelectedImageType] = useState('png');
   const [apiErrors, setAPIErrors] = useState<APIError[]>();
+  const { setTimedNotification } = useNotifications();
 
   const generateImage = useCallback(async () => {
     const minifiedCode = sanitizedCode.replace(/\n\s+|\n/g, '');
@@ -96,10 +98,10 @@ const DemoWidget: React.FC<Props> = () => {
   const onDownload = useCallback(() => {
     setHrefToDownload(undefined);
     setIsDownloadingImage(false);
-    // setTimedNotification({
-    //   id: 'pngDownloadCompleted',
-    //   message: 'Your PNG has been downloaded!',
-    // });
+    setTimedNotification({
+      id: 'imageDownloadCompleted',
+      message: 'Your image has been downloaded!',
+    });
   }, []);
 
   useEffect(() => {
