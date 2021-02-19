@@ -2,7 +2,7 @@ import React from 'react';
 // import { useForm } from '../Form/context';
 import useStyles from './css';
 import isFormValid from '../Form/isFormValid';
-import { Props } from './types';
+import { Props, Form } from './types';
 
 const Errors: React.FC<Props> = (props) => {
   const {
@@ -11,7 +11,11 @@ const Errors: React.FC<Props> = (props) => {
     errors: errorsFromProps,
   } = props;
 
-  const { apiErrors, fieldState } = {}; // useForm() || {};
+  const {
+    apiErrors,
+    fieldState,
+  }: Form = {}; // useForm()
+
   const formIsValid = isFormValid(fieldState);
   const hasPropsErrors = Array.isArray(errorsFromProps) && errorsFromProps.length > 0;
 
@@ -45,7 +49,10 @@ const Errors: React.FC<Props> = (props) => {
           )}
         {formIsValid === false
           && Object.entries(fieldState).map(([, entry], index) => {
-            const { isValid, validationMessage } = entry;
+            const {
+              isValid,
+              validationMessage,
+            } = entry;
 
             if (isValid === false) {
               return (

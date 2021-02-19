@@ -7,7 +7,7 @@ import { Props as CodeBlockProps } from './CodeBlock/types';
 
 const renderers = {
   link: Link,
-  code: (props: CodeBlockProps): React.ReactNode => <CodeBlock {...props} marginBottom background />,
+  code: (props: CodeBlockProps): React.ReactElement => <CodeBlock {...props} marginBottom background />,
   inlineCode: InlineCode,
   list: List,
   heading: Heading,
