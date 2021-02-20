@@ -4,6 +4,7 @@ import GlobalCSS from '../wrappers/GlobalCSS';
 import Header from '../blocks/Header';
 import Footer from '../blocks/Footer';
 import Notifications from '../wrappers/Notifications';
+import Authentication from '../wrappers/Authentication';
 
 type Props = {
   pageProps: Record<string, unknown>
@@ -21,9 +22,11 @@ const App: React.FC<Props> = ({ Component, pageProps }: AppProps) => {
   return (
     <GlobalCSS>
       <Notifications>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
+        <Authentication>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </Authentication>
       </Notifications>
     </GlobalCSS>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import getPathsFromGitHubTree from '../../../utilities/getPathsFromGitHubTree';
 import parseGitHubFileContents from '../../../utilities/parseGitHubFileContents';
-import { getGitHubMasterTree, getGitHubFile } from '../../../api';
+import { getGitHubMasterTree, getGitHubFile } from '../../../github-api';
 import DocTemplate from '../../../templates/DocTemplate';
 import { GitHubJumplist } from '../../../types/GitHub';
 

@@ -1,46 +1,114 @@
-import { GitHubFile, GitHubTree } from './types/GitHub';
-
 const defaultHeaders = {
-  Accept: 'application/vnd.github.v3+json.html',
-  Authorization: `token ${process.env.GITHUB_ACCESS_TOKEN}`,
+  'Content-Type': 'application/json',
 };
 
-export const getGitHubMasterTree = async (): Promise<GitHubTree> => {
-  const res = await fetch('https://api.github.com/repos/rhtml/docs/git/trees/master?recursive=1', {
-    method: 'GET',
-    headers: defaultHeaders,
-  });
+type RequestOptions = {
+  [key: string]: unknown,
+  headers?: Record<string, unknown>
+}
 
-  const json = await res.json();
+interface IRequest {
+  url: string,
+  options?: RequestOptions
+}
 
-  const {
-    message,
-    tree,
-  } = json;
-
-  if (res.status === 200) {
-    return tree;
-  }
-
-  // there is a rate limit on the GitHub API
-  // 60 per hour for unauthenticated users
-  // 5000 per hour for for when authenticating with access token
-  // 403 is status code returns, if reached
-  throw new Error(message);
+export const requests = {
+  get: ({
+    url,
+    options = {},
+  }: IRequest): Promise<Response> => fetch(url, {
+    ...options,
+    method: 'get',
+    headers: {
+      ...defaultHeaders,
+    },
+    credentials: 'include',
+  }),
+  post: ({
+    url,
+    options = {},
+  }: IRequest): Promise<Response> => fetch(url, {
+    ...options,
+    method: 'post',
+    headers: {
+      ...defaultHeaders,
+      ...options?.headers || {},
+    },
+    credentials: 'include',
+  }),
+  put: ({
+    url,
+    options = {},
+  }: IRequest): Promise<Response> => fetch(url, {
+    ...options,
+    method: 'put',
+    headers: {
+      ...defaultHeaders,
+      ...options?.headers || {},
+    },
+    credentials: 'include',
+  }),
+  delete: ({
+    url,
+    options = {},
+  }: IRequest): Promise<Response> => fetch(url, {
+    ...options,
+    method: 'delete',
+    headers: {
+      ...defaultHeaders,
+      ...options?.headers || {},
+    },
+    credentials: 'include',
+  }),
 };
 
-export const getGitHubFile = async (fileName: string): Promise<GitHubFile> => {
-  const res = await fetch(`https://api.github.com/repos/rhtml/docs/contents/${fileName}`, {
-    method: 'GET',
-    headers: defaultHeaders,
-  });
+export interface IFireRequest {
+  method: 'get' | 'post' | 'put' | 'delete',
+  url: string,
+  options?: Record<string, unknown>,
+  parseJSON?: boolean
+}
 
-  const json = await res.json();
-  const { message } = json;
+type ParsedJSON = {
+  errors?: string[],
+  user?: unknown,
+  exp?: number
+}
 
-  if (res.status === 200) {
-    return json;
+type RequestReturn = {
+  res?: Response,
+  json?: ParsedJSON,
+  err?: Error
+}
+
+export const fireRequest = async ({
+  method,
+  url,
+  options,
+  parseJSON = true,
+}: IFireRequest): Promise<RequestReturn> => {
+  const lowercasedMethod = method && method.toLowerCase();
+
+  if (requests[lowercasedMethod] && url) {
+    try {
+      const res = await requests[lowercasedMethod]({ url, options });
+
+      if (parseJSON) {
+        const json = await res.json();
+        return {
+          res,
+          json,
+        };
+      }
+      return {
+        res,
+      };
+    } catch (err) {
+      return {
+        err,
+      };
+    }
   }
 
-  throw new Error(message);
+  return {};
 };
