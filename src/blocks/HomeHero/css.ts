@@ -5,7 +5,6 @@ import colors from '../../css/colors';
 const useStyles = createUseStyles({
   wrapper: {
     overflow: 'hidden',
-    padding: `0 ${base(4)}`,
   },
   header: {
     margin: `${base(4)} 0`,

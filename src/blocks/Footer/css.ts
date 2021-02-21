@@ -3,7 +3,7 @@ import { base } from '../../css';
 
 const useStyles = createUseStyles({
   footer: {
-    padding: base(4),
+    padding: `${base(4)} 0`,
     '& > *:not(:last-child)': {
       marginBottom: base(),
     },

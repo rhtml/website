@@ -7,6 +7,7 @@ import Logo from '../../components/Logo';
 import MaxWidth from '../../components/MaxWidth';
 import AuthDrawer from '../../components/AuthDrawer';
 import { useAuthentication } from '../../wrappers/Authentication';
+import Button from '../../components/Button';
 
 const Header: React.FC<Props> = () => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -50,24 +51,24 @@ const Header: React.FC<Props> = () => {
               </a>
             </Link>
           </li>
-            {isLoggedIn && (
-              <li className={classes.menuItem}>
-                <Link
-                  href="/account"
-                >
-                  <a
-                    className={[
-                      classes.accountLink,
-                      pathname === '/account' && classes.accountLinkActive,
-                    ].filter(Boolean).join(' ')}
+          {isLoggedIn && (
+            <li className={classes.menuItem}>
+              <Link
+                href="/account"
+              >
+                <a
+                  className={[
+                    classes.accountLink,
+                    pathname === '/account' && classes.accountLinkActive,
+                  ].filter(Boolean).join(' ')}
                     >
                   <b>
                     {user?.email || 'Account'}
                   </b>
-                  </a>
-                </Link>
-              </li>
-            )}
+                </a>
+              </Link>
+            </li>
+          )}
             {!isLoggedIn && (
               <li className={classes.menuItem}>
                 <button
@@ -82,6 +83,13 @@ const Header: React.FC<Props> = () => {
                 </button>
               </li>
             )}
+          <li className={classes.menuItem}>
+            <Button
+              label="Buy a license"
+              href="/checkout"
+              size="s"
+            />
+          </li>
         </ul>
         <AuthDrawer
           isOpen={drawerIsOpen}

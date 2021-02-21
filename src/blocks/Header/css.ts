@@ -7,7 +7,7 @@ const useStyles = createUseStyles({
     position: 'sticky',
     top: 0,
     height: base(4),
-    padding: `${base()} ${base(4)}`,
+    padding: `${base()} 0`,
     display: 'flex',
     alignItems: 'center',
     zIndex: 2,
@@ -47,7 +47,8 @@ const useStyles = createUseStyles({
     },
   },
   menuItem: {
-
+    display: 'flex',
+    alignItems: 'center',
   },
   itemAnchor: {
     ...resetButton,
