@@ -1,5 +1,7 @@
 export type User = {
-  email?: string
+  email?: string,
+  name?: string,
+  id?: string
 }
 
 export interface IAuthenticationContext {

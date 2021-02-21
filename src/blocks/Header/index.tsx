@@ -17,7 +17,6 @@ const Header: React.FC<Props> = () => {
     isLoggedIn,
     user,
   } = useAuthentication();
-  console.log(user);
 
   const classes = useStyles();
 
