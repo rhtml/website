@@ -10,20 +10,28 @@ const Logo: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 500 520"
-    className={[
-      classes.wrapper,
-      className,
-    ].filter(Boolean).join(' ')}
-  >
-    <line y1="299.82" x2="500" y2="299.82"/>
-    <polyline points="301.25 10 301.25 116.39 407.63 116.39"/>
-    <polygon points="407.63 116.39 301.25 10 92.37 10 92.37 224.14 92.37 510 407.63 510 407.63 116.39"/>
-    <polygon points="361.65 454.88 271.54 364.77 223 413.31 201.05 391.36 138.35 454.06 361.65 454.88"/>
-    <circle cx="345.79" cy="364.77" r="15.86"/>
-  </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 400 400"
+      className={[
+        classes.wrapper,
+        className,
+      ].filter(Boolean).join(' ')}
+    >
+      <polygon className="stroke" points="66.67 133.33 66.67 333.33 333.33 333.33 333.33 66.67 133.33 66.67 66.67 133.33"/>
+      <polygon className="fill-black" points="66.67 333.33 333.33 333.33 333.33 66.67 66.67 333.33"/>
+      <line className="stroke" x1="100" y1="266.67" x2="133.33" y2="266.67"/>
+      <line className="stroke" x1="100" y1="233.33" x2="166.67" y2="233.33"/>
+      <line className="stroke" x1="100" y1="200" x2="200" y2="200"/>
+      <line className="stroke" x1="100" y1="166.67" x2="233.33" y2="166.67"/>
+      <line className="stroke" x1="166.67" y1="133.33" x2="266.67" y2="133.33"/>
+      <polyline className="stroke" points="133.33 66.67 133.33 133.33 66.67 133.33"/>
+      <circle className="fill-white" cx="268.85" cy="200" r="15.5"/>
+      <polygon className="fill-white" points="146.67 300 200 300 300 300 260 260 240 280 203.33 243.33 146.67 300"/>
+      <polyline className="stroke" points="400 66.67 333.33 66.67 333.33 0"/>
+      <polyline className="stroke" points="66.67 400 66.67 333.33 0 333.33"/>
+      <line className="stroke" x1="66.67" y1="333.33" x2="333.33" y2="66.67"/>
+    </svg>
   );
 };
 
