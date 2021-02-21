@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import useStyles from './css';
-// import { useForm } from '../../Form/context';
+import { useForm } from '../../Form';
 import { Props } from './types';
 
 const Input: React.FC<Props> = (props) => {
@@ -24,7 +24,7 @@ const Input: React.FC<Props> = (props) => {
     appendText,
   } = props;
 
-  const formContext = undefined;
+  const formContext = useForm();
   const valueFromContextOrProps = formContext?.fieldState?.[name]?.value || valueFromProps;
   const hasError = hasErrorFromProps || formContext?.fieldState?.[name]?.isValid === false;
   const [internalState, setInternalState] = useState(valueFromContextOrProps); // use internal state to avoid external debouncing
@@ -74,7 +74,7 @@ const Input: React.FC<Props> = (props) => {
                 setInternalState(incomingValue);
                 if (formContext) {
                   formContext.dispatchFieldState({
-                    type: 'UPDATE_FIELD',
+                    type: 'UPDATE_FIELDS',
                     payload: {
                       name,
                       value: incomingValue,

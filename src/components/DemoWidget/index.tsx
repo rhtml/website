@@ -1,6 +1,6 @@
 import React, { Fragment, useCallback, useEffect, useState } from 'react';
 import sanitizeHTML from 'sanitize-html';
-import { APIError, Props } from './types';
+import { Props } from './types';
 import useStyles from './css';
 import EditableCodeBlock from '../EditableCodeBlock';
 import Button from '../Button';
@@ -14,6 +14,7 @@ import allowedAttributes from './allowedAttributes';
 import HelpTooltip from '../HelpTooltip';
 import Anchor from '../Anchor';
 import { useNotifications } from '../../wrappers/Notifications';
+import { APIError } from '../../api';
 
 const initialValue = `
 <html>

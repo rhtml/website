@@ -1,8 +1,9 @@
 import React from 'react';
-// import { useForm } from '../Form/context';
+import { useForm } from '../Form';
 import useStyles from './css';
 import isFormValid from '../Form/isFormValid';
-import { Props, Form } from './types';
+import { Props } from './types';
+import { IFormContext } from '../Form/types';
 
 const Errors: React.FC<Props> = (props) => {
   const {
@@ -14,7 +15,7 @@ const Errors: React.FC<Props> = (props) => {
   const {
     apiErrors,
     fieldState,
-  }: Form = {}; // useForm()
+  }: IFormContext = useForm() || {};
 
   const formIsValid = isFormValid(fieldState);
   const hasPropsErrors = Array.isArray(errorsFromProps) && errorsFromProps.length > 0;
@@ -37,6 +38,7 @@ const Errors: React.FC<Props> = (props) => {
               </div>
               {apiErrors.map((error, index) => {
                 const { message } = error;
+
                 return (
                     <div key={index}>
                       <span>

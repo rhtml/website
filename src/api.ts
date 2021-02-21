@@ -62,15 +62,21 @@ export const requests = {
   }),
 };
 
+export type APIMethods = 'get' | 'post' | 'put' | 'delete';
 export interface IFireRequest {
-  method: 'get' | 'post' | 'put' | 'delete',
+  method: APIMethods,
   url: string,
   options?: Record<string, unknown>,
-  parseJSON?: boolean
+  parseJSON?: boolean,
+  sleepDuration?: number
 }
 
-type ParsedJSON = {
-  errors?: string[],
+export type APIError = {
+  message: string
+};
+
+export type ParsedJSON = {
+  errors?: APIError[],
   user?: unknown,
   exp?: number
 }
@@ -80,16 +86,20 @@ type RequestReturn = {
   json?: ParsedJSON,
   err?: Error
 }
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const fireRequest = async ({
   method,
   url,
   options,
   parseJSON = true,
+  sleepDuration,
 }: IFireRequest): Promise<RequestReturn> => {
   const lowercasedMethod = method && method.toLowerCase();
 
   if (requests[lowercasedMethod] && url) {
+    if (sleepDuration) await sleep(sleepDuration);
+
     try {
       const res = await requests[lowercasedMethod]({ url, options });
 
