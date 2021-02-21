@@ -8,7 +8,9 @@ const absoluteURLPattern = /^https?:\/\//i;
 const Link: React.FC<LinkProps> = (props) => {
   const {
     href,
-    children,
+    node: {
+      children,
+    },
   } = props;
 
   const {
@@ -36,8 +38,6 @@ const Link: React.FC<LinkProps> = (props) => {
     };
   }
 
-  // const classes = useStyles();
-
   return (
     <NextLink
       href={hrefToUse}
@@ -45,7 +45,7 @@ const Link: React.FC<LinkProps> = (props) => {
     >
       <Anchor
         {...anchorAttributes}
-        label={children}
+        label={children?.[0]?.value}
       />
     </NextLink>
   );
