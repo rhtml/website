@@ -20,6 +20,7 @@ const Button: React.FC<Props> = (props) => {
     icon,
     iconColor,
     onClick,
+    className,
   } = props;
 
   const classes = useStyles();
@@ -28,7 +29,12 @@ const Button: React.FC<Props> = (props) => {
 
   if (href) {
     return (
-      <div className={classes.button}>
+      <div
+        className={[
+          classes.button,
+          className,
+        ].filter(Boolean).join(' ')}
+      >
         <Link href={href}>
           <a
             className={classes.anchor}

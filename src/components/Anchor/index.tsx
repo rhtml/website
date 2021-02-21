@@ -4,7 +4,7 @@ import useStyles from './css';
 
 const Anchor = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
   const {
-    children,
+    label,
     unstyled,
     ...rest
   } = props;
@@ -20,7 +20,7 @@ const Anchor = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
       {...rest}
       ref={ref}
     >
-      {children}
+      {label}
     </a>
   );
 });

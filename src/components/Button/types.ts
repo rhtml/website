@@ -4,5 +4,6 @@ export type Props = {
   iconRotation?: string,
   icon?: string,
   iconColor?: string,
-  onClick?: () => void
+  onClick?: () => void,
+  className?: string
 }

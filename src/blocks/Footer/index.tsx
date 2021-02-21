@@ -29,18 +29,16 @@ const Footer: React.FC<Props> = () => {
             target="_blank"
             rel="noopener noreferrer"
             unstyled={true}
-          >
-            Jacob Fletcher
-          </Anchor>
+            label="Jacob Fletcher"
+          />
         </div>
         <div className={classes.social}>
           <Anchor
             href="https://github.com/rhtml/docs"
             target="_blank"
             rel="noopener noreferrer"
-          >
-            GitHub
-          </Anchor>
+            label="GitHub"
+          />
         </div>
       </MaxWidth>
     </footer>

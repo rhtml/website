@@ -23,7 +23,7 @@ import {
 
 const initialState: FieldState = {};
 
-const FormContext = createContext<IFormContext | Record<string, unknown>>({});
+const FormContext = createContext<IFormContext | null>(null);
 export const useForm = (): IFormContext => useContext(FormContext);
 
 const Form: React.FC<Props> = forwardRef<HTMLFormElement, Props>((props, ref) => {

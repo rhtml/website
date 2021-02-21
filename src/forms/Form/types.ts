@@ -5,20 +5,20 @@ import {
 } from '../../api';
 
 export type Props = {
-  isLoading: boolean,
-  apiErrors: APIError[],
+  isLoading?: boolean,
+  apiErrors?: APIError[],
   method: APIMethods,
   action: string,
   onResponse: (json: ParsedJSON) => void,
-  onError: (Error) => void,
+  onError?: (Error) => void,
   defaultValues: Record<string, Field>,
-  className: string,
-  name: string,
-  onSubmit: (FieldState) => void,
-  flattenOnSubmit: boolean,
-  unflattenOnSubmit: boolean,
-  submitOnChange: boolean,
-  htmlAttributes: Record<string, unknown>,
+  className?: string,
+  name?: string,
+  onSubmit?: (FieldState) => void,
+  flattenOnSubmit?: boolean,
+  unflattenOnSubmit?: boolean,
+  submitOnChange?: boolean,
+  htmlAttributes?: Record<string, unknown>,
 }
 
 export type FormState = {
@@ -37,11 +37,10 @@ type FieldValidation = {
 }
 
 export type Field = {
-  name: string,
   value: string,
-  validation: (string) => FieldValidation,
-  isValid: boolean,
-  validationMessage: string
+  validation?: (string) => FieldValidation,
+  isValid?: boolean,
+  validationMessage?: string
 }
 
 export interface IFormContext {

@@ -218,9 +218,10 @@ const DemoWidget: React.FC<Props> = () => {
               Content={(
                 <Fragment>
                   {'Change image size by adjusting the width and height of the document body. See '}
-                  <Anchor href="/docs/guides/capturing-html">
-                    Capturing HTML
-                  </Anchor>
+                  <Anchor
+                    href="/docs/guides/capturing-html"
+                    label="Capturing HTML"
+                  />
                   {' for more information.'}
                 </Fragment>
               )}

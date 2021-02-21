@@ -42,14 +42,15 @@ export default createUseStyles({
   inputWrapper: {
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: colors.darkGray,
+    backgroundColor: colors.white,
+    border: `${colors.gray} 1px solid`,
   },
   htmlInput: {
     backgroundColor: 'transparent',
     fontSize: `${bodyFontSize}px`,
     color: 'inherit',
     fontWeight: 'bold',
-    padding: `${base(0.5)} 0`,
+    padding: `${base()} 0`,
     border: 'none',
     width: '100%',
     paddingLeft: base(0.5),

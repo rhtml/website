@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Props } from './types';
 import useStyles from './css';
 import Logo from '../../components/Logo';
 import MaxWidth from '../../components/MaxWidth';
+import AuthDrawer from '../../components/AuthDrawer';
+import { useAuthentication } from '../../wrappers/Authentication';
 
 const Header: React.FC<Props> = () => {
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+  const router = useRouter();
+  const { pathname } = router;
+
+  const {
+    isLoggedIn,
+    user,
+  } = useAuthentication();
+  console.log(user);
+
   const classes = useStyles();
 
   return (
@@ -38,7 +51,43 @@ const Header: React.FC<Props> = () => {
               </a>
             </Link>
           </li>
+            {isLoggedIn && (
+              <li className={classes.menuItem}>
+                <Link
+                  href="/account"
+                >
+                  <a
+                    className={[
+                      classes.accountLink,
+                      pathname === '/account' && classes.accountLinkActive,
+                    ].filter(Boolean).join(' ')}
+                    >
+                  <b>
+                    {user?.email || 'Account'}
+                  </b>
+                  </a>
+                </Link>
+              </li>
+            )}
+            {!isLoggedIn && (
+              <li className={classes.menuItem}>
+                <button
+                  className={classes.itemAnchor}
+                  onClick={() => {
+                    setDrawerIsOpen(!drawerIsOpen);
+                  }}
+                >
+                  <b>
+                    Login
+                  </b>
+                </button>
+              </li>
+            )}
         </ul>
+        <AuthDrawer
+          isOpen={drawerIsOpen}
+          setIsOpen={setDrawerIsOpen}
+        />
       </MaxWidth>
     </header>
   );

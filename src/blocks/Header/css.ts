@@ -1,5 +1,5 @@
 import { createUseStyles } from 'react-jss';
-import { base } from '../../css';
+import { base, resetButton } from '../../css';
 import colors from '../../css/colors';
 
 const useStyles = createUseStyles({
@@ -10,9 +10,11 @@ const useStyles = createUseStyles({
     padding: `${base()} ${base(4)}`,
     display: 'flex',
     alignItems: 'center',
+    zIndex: 2,
   },
   maxWidth: {
     display: 'flex',
+    position: 'relative',
   },
   logoAnchor: {
     flexShrink: 0,
@@ -48,10 +50,25 @@ const useStyles = createUseStyles({
 
   },
   itemAnchor: {
+    ...resetButton,
     textDecoration: 'none',
     '&:hover': {
       color: colors.darkerGray,
     },
+  },
+  accountLink: {
+    minWidth: base(),
+    width: base(6),
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    textDecoration: 'none',
+    color: colors.gray,
+    '&:hover': {
+      color: colors.darkGray,
+    },
+  },
+  accountLinkActive: {
+    color: colors.darkGray,
   },
 });
 

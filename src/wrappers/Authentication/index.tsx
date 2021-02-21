@@ -46,7 +46,7 @@ const Authentication: React.FC = (props) => {
           err,
         } = await fireRequest({
           method: 'post',
-          url: `${process.env.CMS_URL}/api/users/refresh-token`,
+          url: `${process.env.NEXT_PUBLIC_CMS_URL}/api/users/refresh-token`,
         });
 
         if (err) setUser(null);
@@ -100,7 +100,7 @@ const Authentication: React.FC = (props) => {
   const logOut = useCallback(async () => {
     setUser(null);
     requests.post({
-      url: `${process.env.NEXT_PUBLIC_API_URL}/api/users/logout`,
+      url: `${process.env.NEXT_PUBLIC_CMS_URL}/api/users/logout`,
     });
     localStorage.removeItem('cancelledAuthReminder');
   }, []);

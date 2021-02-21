@@ -2,7 +2,6 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import Anchor from '../../../Anchor';
 import { LinkProps } from './types';
-// import useStyles from './css';
 
 const absoluteURLPattern = /^https?:\/\//i;
 
@@ -44,9 +43,10 @@ const Link: React.FC<LinkProps> = (props) => {
       href={hrefToUse}
       passHref
     >
-      <Anchor {...anchorAttributes}>
-        {children}
-      </Anchor>
+      <Anchor
+        {...anchorAttributes}
+        label={children}
+      />
     </NextLink>
   );
 };

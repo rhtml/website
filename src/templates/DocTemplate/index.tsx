@@ -33,9 +33,10 @@ const DocTemplate: React.FC<Props> = (props) => {
               href={gitHubURL}
               passHref
             >
-              <Anchor target="_blank">
-                Edit this page on GitHub
-              </Anchor>
+              <Anchor
+                target="_blank"
+                label="Edit this page on GitHub"
+               />
             </Link>
           </footer>
         </div>

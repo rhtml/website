@@ -76,8 +76,9 @@ const Input: React.FC<Props> = (props) => {
                   formContext.dispatchFieldState({
                     type: 'UPDATE_FIELDS',
                     payload: {
-                      name,
-                      value: incomingValue,
+                      [name]: {
+                        value: incomingValue,
+                      },
                     },
                   });
                 }
