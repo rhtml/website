@@ -5,5 +5,6 @@ export type Props = {
   icon?: string,
   iconColor?: string,
   onClick?: () => void,
-  className?: string
+  className?: string,
+  size?: 's' | 'm'
 }

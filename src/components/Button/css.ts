@@ -5,7 +5,6 @@ import colors from '../../css/colors';
 const useStyles = createUseStyles({
   button: {
     ...resetButton,
-    padding: base(0.75),
     backgroundColor: colors.darkerGray,
     color: colors.white,
     display: 'inline-flex',
@@ -16,11 +15,17 @@ const useStyles = createUseStyles({
     },
   },
   anchor: {
-
+    textDecoration: 'none',
   },
   separator: {
     width: base(),
     height: base(),
+  },
+  s: {
+    padding: base(0.25),
+  },
+  m: {
+    padding: base(0.75),
   },
 });
 

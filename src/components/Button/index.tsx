@@ -21,20 +21,22 @@ const Button: React.FC<Props> = (props) => {
     iconColor,
     onClick,
     className,
+    size = 'm',
   } = props;
 
   const classes = useStyles();
 
   const Icon = icons[icon];
 
+  const classList = [
+    classes.button,
+    className,
+    size && classes[size],
+  ].filter(Boolean).join(' ');
+
   if (href) {
     return (
-      <div
-        className={[
-          classes.button,
-          className,
-        ].filter(Boolean).join(' ')}
-      >
+      <div className={classList}>
         <Link href={href}>
           <a
             className={classes.anchor}
@@ -60,7 +62,7 @@ const Button: React.FC<Props> = (props) => {
 
   return (
     <button
-      className={classes.button}
+      className={classList}
       onClick={onClick}
     >
       {label}
